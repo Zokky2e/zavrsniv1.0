@@ -1,10 +1,13 @@
-import React from "react";
+import React, {} from "react";
+import {} from "../User/UserContext";
+import classes from "./Note.module.css";
 function Note(props) {
+  
+  
   return (
-    <div>
-      <div>My Notes</div>
-      <div>{props.value.toDateString()}</div>
-    </div>
+    <li className={classes.item}>
+      <div>{props.data}</div>
+    </li>
   );
 }
 
