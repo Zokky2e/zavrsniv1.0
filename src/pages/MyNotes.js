@@ -10,24 +10,28 @@ function MyNotes() {
 
   const [loadedNotes, setLoadedNotes] = useState([]);
   const currentUser = useAuthValue();
+
   useEffect(() => {
     if (currentUser !== null) {
-      const dbRef = ref(db, currentUser.uid+"/notes");
+      const notes = ["firstNote"];
+      const dbRef = ref(
+        db,
+        currentUser.uid + "/" + value.toDateString() + "/notes"
+      );
       get(dbRef).then((snapshot) => {
         if (snapshot.exists()) {
-          const notes = [];
-          snapshot.forEach((childSnapshot) =>{
+          snapshot.forEach((childSnapshot) => {
             const note = {
               key: childSnapshot.key,
-              childData: childSnapshot.val()
-            }
-              notes.push(note);
-            })
+              childData: childSnapshot.val(),
+            };
+            notes.push(note);
+          });
           setLoadedNotes(notes);
-      }else set(dbRef, { userId: currentUser.uid, notes: null });
+        } else set(dbRef, notes);
       });
     }
-  }, [currentUser]);
+  }, [currentUser, value]);
   if (currentUser === null) {
     return <div>Not signed in, no notes</div>;
   }

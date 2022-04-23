@@ -1,6 +1,10 @@
 import React, {} from "react";
 import {} from "../User/UserContext";
 import classes from "./Note.module.css";
+
+
+
+
 function Note(props) {
   
   

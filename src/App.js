@@ -12,7 +12,6 @@ import Profile from "./pages/Profile";
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   useEffect(() => {
-    console.log(currentUser);
     onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
     });
