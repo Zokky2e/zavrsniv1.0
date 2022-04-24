@@ -1,3 +1,15 @@
-.item{
-    margin: 1rem 0;
+.item {
+  margin: 10px 0;
+  margin-right: 5px;
+}
+
+.item span{
+
+    margin-left: 5px;
+}
+
+.item span:hover {
+  cursor: pointer;
+  border-style: solid;
+  border-width: 2px;
 }
