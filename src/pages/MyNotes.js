@@ -12,9 +12,12 @@ function MyNotes() {
   const currentUser = useAuthValue();
   const [calendarIsOpen, setCalendarIsOpen] = useState(false);
 
-  
-  function changeCalendarHandler(){
+  function changeCalendarHandler() {
     setCalendarIsOpen(!calendarIsOpen);
+  }
+  function onChangeDate(e) {
+    setCalendarIsOpen(!calendarIsOpen);
+    onChange(e);
   }
 
   useEffect(() => {
@@ -43,17 +46,22 @@ function MyNotes() {
   if (currentUser === null) {
     return <div>Not signed in, no notes</div>;
   }
+
+  if (calendarIsOpen) {
+    return (
+      <Frame>
+        <Calendar onChange={onChangeDate} value={value}/>
+      </Frame>
+    );
+  }
   return (
     <Frame>
       <div style={{ flex: "3" }}>
         {<NoteList value={value.toDateString()} notes={loadedNotes} />}
       </div>
-      <div style={{ flex: "1"}}>
+      <div style={{ flex: "1" }}>
         <button onClick={changeCalendarHandler}>Calendar</button>
-        {calendarIsOpen && <Calendar onChange={onChange} value={value} />}
-
       </div>
-      
     </Frame>
   );
 }
