@@ -3,12 +3,19 @@ import { Calendar } from "react-calendar";
 import { useAuthValue } from "../components/User/UserContext";
 import "react-calendar/dist/Calendar.css";
 import { db } from "../firebase";
-import { get, onValue, ref, set } from "firebase/database";
+import { onValue, ref, set } from "firebase/database";
 import NoteList from "../components/Notes/NoteList";
+import Frame from "../components/UI/Frame";
 function MyNotes() {
   const [value, onChange] = useState(new Date());
   const [loadedNotes, setLoadedNotes] = useState([]);
   const currentUser = useAuthValue();
+  const [calendarIsOpen, setCalendarIsOpen] = useState(false);
+
+  
+  function changeCalendarHandler(){
+    setCalendarIsOpen(!calendarIsOpen);
+  }
 
   useEffect(() => {
     if (currentUser !== null) {
@@ -17,7 +24,7 @@ function MyNotes() {
         db,
         currentUser.uid + "/" + value.toDateString() + "/notes"
       );
-      onValue((dbRef), ((snapshot) => {
+      onValue(dbRef, (snapshot) => {
         if (snapshot.exists()) {
           notes = [];
           setLoadedNotes([]);
@@ -30,21 +37,24 @@ function MyNotes() {
           });
           setLoadedNotes(notes);
         } else set(dbRef, notes);
-      }));
+      });
     }
   }, [currentUser, value]);
   if (currentUser === null) {
     return <div>Not signed in, no notes</div>;
   }
   return (
-    <div style={{ display: "flex" }}>
-      <div style={{ flex: "1" }}>
+    <Frame>
+      <div style={{ flex: "3" }}>
         {<NoteList value={value.toDateString()} notes={loadedNotes} />}
       </div>
-      <div style={{ flex: "1" }}>
-        <Calendar onChange={onChange} value={value} />
+      <div style={{ flex: "1"}}>
+        <button onClick={changeCalendarHandler}>Calendar</button>
+        {calendarIsOpen && <Calendar onChange={onChange} value={value} />}
+
       </div>
-    </div>
+      
+    </Frame>
   );
 }
 
