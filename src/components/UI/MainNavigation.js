@@ -1,28 +1,30 @@
-import {  React, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useAuthValue } from '../User/UserContext';
+import { React, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useAuthValue } from "../User/UserContext";
 
-import classes from './MainNavigation.module.css';
+import classes from "./MainNavigation.module.css";
 
 function MainNavigation() {
   const currentUser = useAuthValue();
   const [content, setContent] = useState(null);
- useEffect(()=>{
-  if(currentUser===null) {
-    setContent(<li><Link to='sign-in'>Sign In</Link></li>);
-  }
-  else{
-    setContent(<li><Link to='/profile'>Profile</Link></li>)
-  }
- },[currentUser])
+  const userName = currentUser?.email.substring(0, currentUser?.email.indexOf("@"));
+  useEffect(() => {
+    if (currentUser === null) {
+      setContent(<Link to="sign-in"><span className={classes.profile}>Sign In</span></Link>);
+    } else {
+      setContent(<Link to="/profile"><span className={classes.profile}>{userName}</span></Link>);
+    }
+  }, [currentUser, userName]);
   return (
     <header className={classes.header}>
-      <div className={classes.logo}>My Notes</div>
-      <nav>
-        <ul><li><Link to='/'>My Notes</Link></li>
-        {content}
+        <ul>
+          <li>{content}</li>
+
+          <li className={classes.notes}>
+            <Link to="/">Notes</Link>
+          </li>
         </ul>
-      </nav>
+      <div className={classes.space}></div>
     </header>
   );
 }

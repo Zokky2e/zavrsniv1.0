@@ -49,20 +49,23 @@ function MyNotes() {
 
   if (calendarIsOpen) {
     return (
-      <Frame>
-        <Calendar onChange={onChangeDate} value={value}/>
-      </Frame>
+      <div>
+        <Calendar onChange={onChangeDate} value={value} />
+      </div>
     );
   }
   return (
-    <Frame>
-      <div style={{ flex: "3" }}>
-        {<NoteList value={value.toDateString()} notes={loadedNotes} />}
-      </div>
-      <div style={{ flex: "1" }}>
+    <div>
+      <div style={{"margin": "10px 0px"}}>
         <button onClick={changeCalendarHandler}>Calendar</button>
       </div>
+      <Frame>
+      <div>
+        <NoteList value={value.toDateString()} notes={loadedNotes} />
+      </div>
     </Frame>
+    </div>
+    
   );
 }
 

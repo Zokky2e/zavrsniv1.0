@@ -14,11 +14,14 @@ function Note(props) {
       console.log("deleted key: " + props?.kljuc)
     );
   }
+  function onEditHandler(){
+    //TODO
+  }
 
   function onClickHandler() {
     changeContent(
       <div style={{ float: "right" }}>
-        <span>Edit</span>
+        <span onClick={onEditHandler}>Edit</span>
         <span onClick={onDeleteHandler}>Delete</span>
       </div>
     );

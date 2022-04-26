@@ -2,7 +2,8 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
-
+import Frame from "../UI/Frame";
+import classes from "./Register.module.css"
 function Register() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -41,11 +42,10 @@ function Register() {
   };
 
   return (
-    <div>
-      <h1>Register</h1>
+    <Frame>
       {error && <div className="auth__error">{error}</div>}
-      <form onSubmit={register} name="registration_form">
-        <div>
+      <form className={classes.form} onSubmit={register} name="registration_form">
+        <div className={classes.control}>
           <label htlmfor="email">Email:</label>
           <input
             type="email"
@@ -54,7 +54,7 @@ function Register() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div>
+        <div className={classes.control}>
           <label htlmfor="password">Password</label>
           <input
             type="password"
@@ -63,7 +63,7 @@ function Register() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div>
+        <div className={classes.control}>
           <label htlmfor="re-password">Retype Password</label>
           <input
             type="password"
@@ -72,11 +72,11 @@ function Register() {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
-        <div>
+        <div className={classes.actions}>
           <button type="submit">Register</button>
         </div>
       </form>
-    </div>
+    </Frame>
   );
 }
 
