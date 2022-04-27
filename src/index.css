@@ -7,6 +7,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
+  margin: auto;
   background-color: #FFF6D6;
 }
 
@@ -19,3 +20,13 @@ h2 {
   font-size: 1.5rem;
   color: #2c292b;
 }
+
+/*
+color background: FFF6D6
+color frame: EBDEBE
+color text: 46366F
+color navbar: 46366F
+color navbar text: EBDEBE
+color misc: 89B6C5
+color hover: 79719E
+*/

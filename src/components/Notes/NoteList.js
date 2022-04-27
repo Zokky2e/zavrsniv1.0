@@ -26,31 +26,37 @@ function NoteList(props) {
     changeContent(
       <div>
         <input
-          type="text"
+          className={classes.newNote}
           required
+          rows="2"
           id="text"
+          type="text"
           ref={textInputRef}
           placeholder="enter note"
         />
-        <button onClick={onAddHandler}>Add</button>
-        <span style={{ cursor: "pointer" }} onClick={onCancelHandler}>
-          {" "}
-          X
-        </span>
+        <button className={classes.button} onClick={onAddHandler}>
+          &#10004;
+        </button>
+        <button style={{"fontWeight": "bold"}}
+          className={classes.button}
+          onClick={onCancelHandler}
+        >
+          &#10005;
+        </button>
       </div>
     );
   }
 
   return (
-    <div>
-      <div>date: {props.value}</div>
+    <div className ={classes.container}>
+      <div className ={classes.date} >date: {props.value}</div>
       <ul className={classes.list}>
         {props.notes.map((note) => (
-          <Note  kljuc={note.key} date={props.value} data={note.childData} />
+          <Note kljuc={note.key} date={props.value} data={note.childData} />
         ))}
       </ul>
       {content}
-      <button onClick={onAddNewNoteHandler}>Add new Note</button>
+      <button className={classes.addButton} onClick={onAddNewNoteHandler}>Add new Note</button>
     </div>
   );
 }

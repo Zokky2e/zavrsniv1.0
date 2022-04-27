@@ -1,5 +1,60 @@
-.list{
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.container {
+  margin: 15px;
+}
+.date {
+  margin: auto;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.newNote {
+  height: 35px;
+  margin-bottom: 5px;
+  border-style: none;
+  background: #89b6c5;
+  color: #46366f;
+  font-size: larger;
+  outline: none;
+  border-radius: 10px;
+  text-align: center;
+}
+.button {
+  cursor: pointer;
+  margin-left: 5px;
+  height: 35px;
+  width: 35px;
+  padding: 0;
+  background: #89b6c5;
+  border-radius: 30px;
+  font-size: medium;
+  border: none;
+  outline: none;
+}
+.addButton {
+  cursor: pointer;
+  height: 35px;
+  width: 135px;
+  padding: 0;
+  background: #89b6c5;
+  border-radius: 30px;
+  font-size: medium;
+  border: none;
+  outline: none;
+}
+
+.calendarButton {
+  cursor: pointer;
+  height: 25px;
+  width: 135px;
+  padding: 0;
+  margin-left: 10px;
+  background: #89b6c5;
+  border-radius: 30px;
+  font-size: medium;
+  border: none;
+  outline: none;
 }

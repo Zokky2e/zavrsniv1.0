@@ -1,6 +1,12 @@
 .item {
+  width: 400px;
+  height: 25px;
+  line-height: 10px;
+  vertical-align: middle;
   margin: 10px 0;
   margin-right: 5px;
+  border-radius: 30px;
+  border: 2px;
 }
 
 .item span{

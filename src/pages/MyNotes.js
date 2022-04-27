@@ -5,7 +5,9 @@ import "react-calendar/dist/Calendar.css";
 import { db } from "../firebase";
 import { onValue, ref, set } from "firebase/database";
 import NoteList from "../components/Notes/NoteList";
+import classes from "../components/Notes/NoteList.module.css";
 import Frame from "../components/UI/Frame";
+
 function MyNotes() {
   const [value, onChange] = useState(new Date());
   const [loadedNotes, setLoadedNotes] = useState([]);
@@ -50,22 +52,32 @@ function MyNotes() {
   if (calendarIsOpen) {
     return (
       <div>
-        <Calendar onChange={onChangeDate} value={value} />
+        <button
+          className={classes.calendarButton}
+          onClick={changeCalendarHandler}
+        >
+          Back to notes
+        </button>
+        <div style={{ margin: "10px 0px" }}>
+          <Calendar onChange={onChangeDate} value={value} />
+        </div>
       </div>
     );
   }
   return (
     <div>
-      <div style={{"margin": "10px 0px"}}>
-        <button onClick={changeCalendarHandler}>Calendar</button>
-      </div>
+      <button
+        className={classes.calendarButton}
+        onClick={changeCalendarHandler}
+      >
+        Calendar
+      </button>
       <Frame>
-      <div>
-        <NoteList value={value.toDateString()} notes={loadedNotes} />
-      </div>
-    </Frame>
+        <div>
+          <NoteList value={value.toDateString()} notes={loadedNotes} />
+        </div>
+      </Frame>
     </div>
-    
   );
 }
 
