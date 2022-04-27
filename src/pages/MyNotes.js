@@ -6,7 +6,6 @@ import { db } from "../firebase";
 import { onValue, ref, set } from "firebase/database";
 import NoteList from "../components/Notes/NoteList";
 import classes from "../components/Notes/NoteList.module.css";
-import Frame from "../components/UI/Frame";
 
 function MyNotes() {
   const [value, onChange] = useState(new Date());
@@ -72,11 +71,9 @@ function MyNotes() {
       >
         Calendar
       </button>
-      <Frame>
         <div>
           <NoteList value={value.toDateString()} notes={loadedNotes} />
         </div>
-      </Frame>
     </div>
   );
 }

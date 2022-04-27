@@ -1,12 +1,22 @@
 .item {
   width: 400px;
-  height: 25px;
-  line-height: 10px;
-  vertical-align: middle;
-  margin: 10px 0;
-  margin-right: 5px;
+  height: 30px;
+  margin: 20px 5px 20px 5px;
   border-radius: 30px;
   border: 2px;
+}
+
+.button {
+  cursor: pointer;
+  margin-left: 5px;
+  height: 30px;
+  width: 50px;
+  padding: 0;
+  background: #89b6c5;
+  border-radius: 30px;
+  font-size: medium;
+  border: none;
+  outline: none;
 }
 
 .item span{
