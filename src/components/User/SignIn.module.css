@@ -6,8 +6,8 @@
   list-style: none;
   display: flex;
   align-items: center;
-  justify-content:space-around;
-  margin-bottom: -25px;
+  justify-content:start;
+  margin-bottom: -30px;
 }
 
 .item {
@@ -18,7 +18,7 @@
 
 
 .inactive {
-  width: 50%;
+  width: 40%;
   cursor: pointer;
   font-weight: bold;
   padding-top: 13px;
@@ -29,7 +29,7 @@
   height: 50px;
 }
 .active {
-  width: 50%;
+  width: 40%;
   font-weight: bold;
   padding-top: 13px;
   text-align: center;
