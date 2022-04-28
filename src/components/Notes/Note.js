@@ -1,5 +1,5 @@
 import { ref, remove, set} from "firebase/database";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { db } from "../../firebase";
 import Frame from "../UI/Frame";
 import { useAuthValue } from "../User/UserContext";
@@ -8,7 +8,7 @@ import classes from "./Note.module.css";
 function Note(props) {
   const [content, changeContent] = useState(null);
   const currentUser = useAuthValue();
-  const [textInput, setTextInput] = useState("");
+  const textInputRef = useRef();
 
   function onDeleteHandler() {
     changeContent(null);
@@ -25,7 +25,7 @@ function Note(props) {
       db,
       currentUser.uid + "/" + props.date + "/notes/" + props?.kljuc
     );
-    const enteredText = textInput.current.value;
+    const enteredText = textInputRef.current.value;
     set(dbRef, enteredText).then(console.log("upated note: " + enteredText));
     changeContent(null);
   }
@@ -33,12 +33,8 @@ function Note(props) {
     changeContent(null)
   }
 
-  function onChangeHandler(e){
-    setTextInput(e.target.value);
-  }
-
   function onEditHandler() {
-    setTextInput(props?.data)
+    
     changeContent(
       <div >
         <input
@@ -47,8 +43,8 @@ function Note(props) {
           rows="2"
           id="text"
           type="text"
-          value={textInput}
-          onInput={onChangeHandler(this.value)}
+          placeholder="enter the edited contents"
+          ref={textInputRef}
         />
         <button className={classes.button} onClick={onConfirmEditHandler}>
           &#10004;

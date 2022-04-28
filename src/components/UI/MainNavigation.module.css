@@ -56,6 +56,15 @@
   color: #46366F;
 }
 
+.profile:hover{
+  background: #46366F;
+  color: #89b6c5;
+  border: #89B6C5;
+  border-style:solid;
+  border-width: 2px;
+}
+
+
 .notes{
   position: relative;
   top: 15px;

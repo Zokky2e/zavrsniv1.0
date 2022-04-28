@@ -57,7 +57,7 @@ function MyNotes() {
         >
           Back to notes
         </button>
-        <div style={{ margin: "10px 0px" }}>
+        <div className={classes.calendar}>
           <Calendar onChange={onChangeDate} value={value} />
         </div>
       </div>
