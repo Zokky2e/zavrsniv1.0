@@ -1,5 +1,5 @@
 import { ref, remove, set } from "firebase/database";
-import React, { useRef, useState } from "react";
+import React, {  useRef, useState } from "react";
 import { db } from "../../firebase";
 import Frame from "../UI/Frame";
 import { useAuthValue } from "../User/UserContext";
@@ -65,6 +65,8 @@ function Note(props) {
       </div>
     );
   }
+
+  
 
   return (
     <>
