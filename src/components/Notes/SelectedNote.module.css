@@ -1,0 +1,39 @@
+.popup {
+  position: fixed;
+  top:  0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inner {
+  position: relative;
+  padding: 32px;
+  width: 100%;
+  max-width: 640px;
+  background-color: #EBDEBE;
+  border-radius: 30px 30px 30px 30px / 30px 30px 30px 30px; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.202);
+
+}
+
+.button{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: larger;
+    background: #89b6c5;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 0cm;
+
+}
+.button:hover{
+  background: #46366F;
+  color: #89b6c5;
+}
+
+
