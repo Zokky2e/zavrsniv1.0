@@ -1,6 +1,6 @@
 import React from "react";
-import classes from "./SelectedNote.module.css";
-function SelectedNote(props) {
+import classes from "./Popup.module.css";
+function Popup(props) {
   return props.trigger ? (
     <div className={classes.popup}>
       <div className={classes.inner}>
@@ -18,4 +18,4 @@ function SelectedNote(props) {
   );
 }
 
-export default SelectedNote;
+export default Popup;

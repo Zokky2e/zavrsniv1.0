@@ -2,9 +2,9 @@ import { ref, remove, set } from "firebase/database";
 import React, { useRef, useState } from "react";
 import { db } from "../../firebase";
 import Frame from "../UI/Frame";
-import SelectedNote from "./SelectedNote";
 import { useAuthValue } from "../User/UserContext";
 import classes from "./Note.module.css";
+import Popup from "./Popup";
 
 function Note(props) {
   const [buttonPopup, setButtonPopup] = useState(false);
@@ -29,11 +29,15 @@ function Note(props) {
       currentUser.uid + "/" + props.date + "/notes/" + props?.kljuc
     );
     const enteredText = textInputRef.current.value;
-    set(dbRef, enteredText).then(console.log("upated note: " + enteredText));
-    changeContent(null);
+    set(dbRef, enteredText).then(setButtonPopup(false));
   }
   function onCancelEditHandler() {
-    changeContent(null);
+    changeContent(
+      <>
+        <h2>{props.data}</h2>
+        
+      </>
+    );
   }
 
   function onEditHandler() {
@@ -62,28 +66,31 @@ function Note(props) {
     );
   }
 
-  
-
   return (
     <>
       <Frame>
         <li className={classes.item}>
-          <span onClick={()=>{setButtonPopup(true)}}>{props.data}</span>
-          
+          <span
+            onClick={() => {
+              changeContent(<h2>{props.data}</h2>);
+              setButtonPopup(true);
+            }}
+          >
+            {props.data}
+          </span>
         </li>
       </Frame>
-      <SelectedNote trigger={buttonPopup} setTrigger={setButtonPopup}>
-        <h2>{props.data}</h2>
+      <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
         {content}
         <div>
           <button className={classes.button} onClick={onEditHandler}>
             Edit
           </button>
-          <button className={classes.button} onClick={onDeleteHandler} >
+          <button className={classes.button} onClick={onDeleteHandler}>
             Delete
           </button>
         </div>
-      </SelectedNote>
+      </Popup>
     </>
   );
 }
