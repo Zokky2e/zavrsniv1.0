@@ -14,10 +14,18 @@
   padding: 0;
 }
 
-.newNote {
-  height: 35px;
+.newNote{
+  display: block;
+  
   margin-left: 5px;
+}
+
+
+
+.newNote input {
+  height: 35px;
   margin-bottom: 5px;
+  margin-left: -5px;
   border-style: none;
   background: #89b6c5;
   color: #46366f;

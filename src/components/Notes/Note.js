@@ -74,7 +74,7 @@ function Note(props) {
         <li className={classes.item}>
           <span
             onClick={() => {
-              changeContent(<h2>{props.data}</h2>);
+              changeContent(<><h2>{props.data}</h2><p>Priority: 1</p><p>Between: 1pm and 4pm </p><p>Plan text... probably some info about the plan</p></>);
               setButtonPopup(true);
             }}
           >
@@ -84,6 +84,7 @@ function Note(props) {
       </Frame>
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
         {content}
+        <br/>
         <div>
           <button className={classes.button} onClick={onEditHandler}>
             Edit

@@ -9,6 +9,8 @@ function NoteList(props) {
   const currentUser = useAuthValue();
   const [buttonPopup, setButtonPopup] = useState(false);
   const textInputRef = useRef();
+  const titleInputRef = useRef();
+  const priorityInputRef = useRef();
   function onCancelHandler() {
     setButtonPopup(false)
   }
@@ -33,7 +35,19 @@ function NoteList(props) {
         ))}
       </ul>
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-        <div>
+        <div className={classes.newNote} >
+          <label htmlFor="title">Title:</label>
+          <input
+            className={classes.newNote}
+            required
+            rows="2"
+            id="title"
+            type="title"
+            ref={titleInputRef}
+            placeholder="enter title"
+          />
+          <br/>
+          <label htmlFor="text">Description:</label>
           <input
             className={classes.newNote}
             required
@@ -41,9 +55,22 @@ function NoteList(props) {
             id="text"
             type="text"
             ref={textInputRef}
-            placeholder="enter note"
+            placeholder="enter description"
           />
-          <div><button className={classes.button} onClick={onAddHandler}>
+          <br/>
+          <label htmlFor="priority">Priority:</label>
+          <input
+            className={classes.newNote}
+            required
+            rows="2"
+            id="priority"
+            type="number"
+            ref={priorityInputRef}
+            placeholder="1-4"
+          />
+          </div>
+          <div>
+            <button className={classes.button} onClick={onAddHandler}>
             &#10004;
           </button>
           <button
@@ -53,7 +80,6 @@ function NoteList(props) {
           >
             &#10005;
           </button></div>
-        </div>
       </Popup>
       <button
         className={classes.addButton}
