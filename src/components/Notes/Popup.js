@@ -26,7 +26,8 @@ function Popup(props) {
             props.setTrigger(false);
           }}
         >&#10005;</button>
-        {props.children}
+        <div className={classes.children}>{props.children}</div>
+        
       </div>
     </div>
   ) : (

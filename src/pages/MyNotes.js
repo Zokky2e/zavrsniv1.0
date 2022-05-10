@@ -23,6 +23,7 @@ function MyNotes() {
 
   useEffect(() => {
     if (currentUser !== null) {
+      //TODO this note needs to become a fullout note object list
       let notes = ["Click me to edit!"];
       const dbRef = ref(
         db,
@@ -33,6 +34,7 @@ function MyNotes() {
           notes = [];
           setLoadedNotes([]);
           snapshot.forEach((childSnapshot) => {
+            //TODO this will be edited into an object with key, title, text and priority
             const note = {
               key: childSnapshot.key.toString(),
               childData: childSnapshot.val(),
@@ -50,7 +52,7 @@ function MyNotes() {
 
   if (calendarIsOpen) {
     return (
-      <div>
+      <div className={classes.container}>
         <button
           className={classes.calendarButton}
           onClick={changeCalendarHandler}
@@ -64,7 +66,7 @@ function MyNotes() {
     );
   }
   return (
-    <div>
+    <div  className={classes.container}>
       <button
         className={classes.calendarButton}
         onClick={changeCalendarHandler}

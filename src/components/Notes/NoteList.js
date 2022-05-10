@@ -12,7 +12,7 @@ function NoteList(props) {
   const titleInputRef = useRef();
   const priorityInputRef = useRef();
   function onCancelHandler() {
-    setButtonPopup(false)
+    setButtonPopup(false);
   }
   function onAddHandler() {
     const dateString = Date.now().toString();
@@ -20,66 +20,64 @@ function NoteList(props) {
       db,
       currentUser.uid + "/" + props.value + "/notes/" + dateString
     );
+    //TODO add other two refrences into an object then send to database
     const enteredText = textInputRef.current.value;
 
     set(dbRef, enteredText).then(console.log("added note: " + enteredText));
     setButtonPopup(false);
   }
-  
+
   return (
-    <div className={classes.container}>
+    <div>
       <div className={classes.date}>date: {props.value}</div>
       <ul className={classes.list}>
+        {/*chaynge the maping of a note by editing the object values */}
         {props.notes.map((note) => (
-          <Note kljuc={note.key} date={props.value} data={note.childData} />
+          <Note date={props.value}  kljuc={note.key} data={note.childData} />
         ))}
       </ul>
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-        <div className={classes.newNote} >
+        <div className={classes.newNote}>
           <label htmlFor="title">Title:</label>
+          <br />
           <input
-            className={classes.newNote}
-            required
-            rows="2"
             id="title"
             type="title"
             ref={titleInputRef}
             placeholder="enter title"
           />
-          <br/>
+          <br />
           <label htmlFor="text">Description:</label>
+          <br />
           <input
-            className={classes.newNote}
-            required
-            rows="2"
             id="text"
             type="text"
             ref={textInputRef}
             placeholder="enter description"
           />
-          <br/>
+          <br />
           <label htmlFor="priority">Priority:</label>
+          <br />
           <input
-            className={classes.newNote}
-            required
-            rows="2"
             id="priority"
             type="number"
             ref={priorityInputRef}
             placeholder="1-4"
           />
-          </div>
-          <div>
+          <br />
+          <div className={classes.date}>
             <button className={classes.button} onClick={onAddHandler}>
-            &#10004;
-          </button>
-          <button
-            style={{ fontWeight: "bold" }}
-            className={classes.button}
-            onClick={onCancelHandler}
-          >
-            &#10005;
-          </button></div>
+              &#10004;
+            </button>
+            <button
+              style={{ fontWeight: "bold" }}
+              className={classes.button}
+              onClick={onCancelHandler}
+            >
+              &#10005;
+            </button>
+          </div>
+        </div>
       </Popup>
       <button
         className={classes.addButton}

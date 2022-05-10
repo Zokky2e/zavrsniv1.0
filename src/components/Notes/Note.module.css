@@ -7,7 +7,22 @@
   border-radius: 30px;
   border: 2px;
 }
-
+.editNote{
+  display: block;
+  margin-left: 5px;
+}
+.editNote input {
+  height: 35px;
+  margin-bottom: 5px;
+  margin-left: -5px;
+  border-style: none;
+  background: #89b6c5;
+  color: #46366f;
+  font-size: larger;
+  outline: none;
+  border-radius: 10px;
+  text-align: center;
+}
 .button {
   cursor: pointer;
   margin-left: 5px;

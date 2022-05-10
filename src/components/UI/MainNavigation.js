@@ -7,7 +7,7 @@ import classes from "./MainNavigation.module.css";
 function MainNavigation() {
   const currentUser = useAuthValue();
   const [content, setContent] = useState(null);
-  const userName = currentUser?.email.substring(0, currentUser?.email.indexOf("@"));
+  const userName = currentUser?.email.substring(0, 6);
   useEffect(() => {
     if (currentUser === null) {
       setContent(<Link to="sign-in"><span className={classes.profile}>Sign In</span></Link>);
@@ -17,14 +17,14 @@ function MainNavigation() {
   }, [currentUser, userName]);
   return (
     <header className={classes.header}>
-        <ul>
+      <div className={classes.inner}><ul>
           <li>{content}</li>
 
           <li className={classes.notes}>
             <Link to="/">Notes</Link>
           </li>
-        </ul>
-      <div className={classes.space}></div>
+        </ul></div>
+        
     </header>
   );
 }

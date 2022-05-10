@@ -1,7 +1,8 @@
 .frame{
     display: inline-block;
     background-color: #EBDEBE;
-    width: 81%;
+    width: 100%;
+    max-width: 1050px;
     margin-top: 5px;
     margin-bottom: 5px;
     border-radius: 10px;

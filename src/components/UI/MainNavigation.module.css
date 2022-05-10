@@ -1,21 +1,26 @@
 .header {
   position: absolute;
   width: 100%;
-  height: 10%;
+  height: 10vh;
   left: 0px;
   top: 0px;
-  display: flex;
-  align-items: center;
-  justify-content:space-around;
+  
   background: #46366F;
 }
 
+.inner{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+}
+
+
 .header ul {
   list-style: none;
-  margin: 220px;
-  margin-top: 165px;
   margin-left: 20%;
-  width: 55%;
   height: 10%;
   padding: 0;
   display: flex;
@@ -38,12 +43,10 @@
 .header a.active {
   color: white;
 }
-.space{
-  width: 25%;
-}
+
 .profile{
-  height: 4rem;
-  width: 4rem;
+  height: 6vh;
+  width: 6vh;
   position:relative;
   left: -2rem;
   border-radius: 50%;
