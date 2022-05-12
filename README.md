@@ -1,3 +1,13 @@
+# :croatia: Moj zavrsni rad na 3.godini računarstva
+
+Tema: Web aplikacija za planiranje događaja.\
+Promjene su sortirane po commitovima, koristenjem notacije verzija(npr. 1.9.5)
+
+# :gb: My final paper on 3rd year of computer science
+
+Topic: Web application for event planning.\
+Changes are sorted by commits, using version notation (e.g. 1.9.5)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
