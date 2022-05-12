@@ -4,19 +4,17 @@
   height: 10vh;
   left: 0px;
   top: 0px;
-  
-  background: #46366F;
+  background: #46366f;
 }
 
-.inner{
+.inner {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   align-items: center;
-  justify-content:space-between;
+  justify-content: space-between;
 }
-
 
 .header ul {
   list-style: none;
@@ -28,14 +26,13 @@
 }
 
 .header li {
-  
   margin-left: 3rem;
 }
 
 .header a {
   text-decoration: none;
   font-size: 1.5rem;
-  color: #EBDEBE;
+  color: #ebdebe;
 }
 
 .header a:hover,
@@ -44,31 +41,30 @@
   color: white;
 }
 
-.profile{
+.profile {
   height: 6vh;
   width: 6vh;
-  position:relative;
+  position: relative;
   left: -2rem;
   border-radius: 50%;
   display: inline-block;
-  background-color: #89B6C5;
-  font-size:small;
+  background-color: #89b6c5;
+  font-size: small;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #46366F;
+  color: #46366f;
 }
 
-.profile:hover{
-  background: #46366F;
+.profile:hover {
+  background: #46366f;
   color: #89b6c5;
-  border: #89B6C5;
-  border-style:solid;
+  border: #89b6c5;
+  border-style: solid;
   border-width: 2px;
 }
 
-
-.notes{
+.notes {
   position: relative;
   top: 15px;
 }

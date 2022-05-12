@@ -1,13 +1,29 @@
 .item {
   width: 100%;
-  height: 40px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 30px;
   border: 2px;
+  color: #46366f;
 }
-.editNote{
+.item:hover {
+  cursor: pointer;
+}
+.item h2 {
+  color: #46366f;
+}
+
+.onHoverItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 2vh;
+}
+
+.editNote {
   display: block;
   margin-left: 5px;
 }
@@ -36,11 +52,10 @@
   outline: none;
 }
 
-.button:hover{
-  background: #46366F;
+.button:hover {
+  background: #46366f;
   color: #89b6c5;
 }
-
 
 .newNote {
   height: 35px;
@@ -54,13 +69,6 @@
   text-align: center;
 }
 
-.item span{
-
-    margin-left: 5px;
-}
-
 .item span:hover {
   cursor: pointer;
-  border-style: dotted;
-  border-width: 1px;
 }

@@ -1,23 +1,30 @@
 .container {
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .date {
   width: 100%;
-  display: flex;
-  justify-content: center;
+  height: 25px;
+  margin-top: 1vh;
+  margin-left: 1vh;
+  display:flex;
+  justify-content: left;
+  color:#46366f;
+  font-weight: bold;
 }
 
 .list {
   list-style: none;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
   padding: 0;
 }
 
-.newNote{
+.newNote {
   display: block;
   margin-left: 5px;
 }
@@ -36,7 +43,7 @@
 }
 .button {
   cursor: pointer;
-  
+
   height: 30px;
   margin-left: auto;
   margin-right: auto;
@@ -49,8 +56,8 @@
   outline: none;
 }
 
-.button:hover{
-  background: #46366F;
+.button:hover {
+  background: #46366f;
   color: #89b6c5;
 }
 .addButton {
@@ -63,34 +70,40 @@
   font-size: medium;
   border: none;
   outline: none;
+  color:#46366f;
+  font-weight: bold;
 }
 
-.addButton:hover{
-  background: #46366F;
+.addButton:hover {
+  font-weight: bold;
+  background: #46366f;
   color: #89b6c5;
 }
 
 .calendarButton {
   cursor: pointer;
-  height: 30px;
+  height: 3vh;
   width: 135px;
   padding: 0;
+  font-weight: bold;
   background: #89b6c5;
-  border-radius: 0px 0px 30px 30px / 0px 0px 30px 30px; 
+  color:#46366f;
+  border-radius: 0px 0px 30px 30px / 0px 0px 30px 30px;
   font-size: medium;
   border: none;
   outline: none;
 }
 
-.calendarButton:hover{
-  background: #46366F;
+.calendarButton:hover {
+  font-weight: bold;
+  background: #46366f;
   color: #89b6c5;
 }
 
-.calendar{
+.calendar {
   display: flex;
   align-items: center;
-  justify-content:space-around;
+  justify-content: space-around;
   position: fixed;
   top: 25%;
   left: 45%;

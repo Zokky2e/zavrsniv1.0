@@ -1,5 +1,5 @@
 import { ref, remove, set } from "firebase/database";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { db } from "../../firebase";
 import Frame from "../UI/Frame";
 import { useAuthValue } from "../User/UserContext";
@@ -9,13 +9,42 @@ import Popup from "./Popup";
 function Note(props) {
   const [buttonPopup, setButtonPopup] = useState(false);
   const currentUser = useAuthValue();
-  const textInputRef = useRef();
+  const itemRef = useRef();
+  const descriptionInputRef = useRef();
   const titleInputRef = useRef();
   const priorityInputRef = useRef();
   const [content, changeContent] = useState(null);
+  const [onHover, setOnHover] = useState(<h2>{props.data.title}</h2>);
+
+  useEffect(() => {
+    function onHoverEnterHandler(event) {
+      if (itemRef.current.contains(event.target))
+        setOnHover(
+          <div className={classes.onHoverItem}>
+            <h2>{props.data.title}</h2>
+            <div>{props.data.description}</div>
+          </div>
+        );
+    }
+
+    function onHoverLeaveHandler(event) {
+      if (itemRef.current.contains(event.target))
+        setOnHover(
+          <>
+            <h2>{props.data.title}</h2>
+          </>
+        );
+    }
+
+    document.addEventListener("mouseover", onHoverEnterHandler);
+    document.addEventListener("mouseout", onHoverLeaveHandler);
+    return () => {
+      document.removeEventListener("mouseover", onHoverEnterHandler);
+      document.removeEventListener("mouseout", onHoverLeaveHandler);
+    };
+  });
 
   function onDeleteHandler() {
-    //TODO add 2other refrences for deleting the note
     changeContent(null);
     setButtonPopup(false);
     const dbRef = ref(
@@ -26,20 +55,37 @@ function Note(props) {
   }
 
   function onConfirmEditHandler() {
-    //TODO add 2other refrences for editing the note
     const dbRef = ref(
       db,
       currentUser.uid + "/" + props.date + "/notes/" + props?.kljuc
     );
-    const enteredText = textInputRef.current.value;
-    set(dbRef, enteredText).then(setButtonPopup(false));
+    let enteredDescription = descriptionInputRef.current.value;
+    let enteredTitle = titleInputRef.current.value;
+    let enteredPriority = priorityInputRef.current.value;
+    if (enteredDescription === "") {
+      enteredDescription = props.data.description;
+    }
+    if (enteredTitle === "") {
+      enteredTitle = props.data.title;
+    }
+    if(enteredPriority ===""){
+      enteredPriority = props.data.priority;
+    }
+    let note = {
+      description: enteredDescription,
+      title: enteredTitle,
+      priority: enteredPriority,
+    };
+    set(dbRef, note).then(setButtonPopup(false)).then( onCancelEditHandler());
+    
   }
   function onCancelEditHandler() {
+    console.log("entered")
     changeContent(
       <>
-        <h2>{props.data}</h2>{/*props.data.title*/}
-        <p>Priority: 1</p>{/*props.data.priority*/}
-        <p>Plan text... probably some info about the plan</p>{/*props.data.text*/}
+        <h2>{props.data.title}</h2>
+        <p>Priority: {props.data.priority}</p>
+        <p>{props.data.description}</p>
         <div>
           <button className={classes.button} onClick={onEditHandler}>
             Edit
@@ -60,17 +106,17 @@ function Note(props) {
           <br />
           <input
             id="title"
-            type="title"
+            type="text"
             ref={titleInputRef}
             placeholder="enter title"
           />
           <br />
-          <label htmlFor="text">Description:</label>
+          <label htmlFor="description">Description:</label>
           <br />
           <input
-            id="text"
+            id="description"
             type="text"
-            ref={textInputRef}
+            ref={descriptionInputRef}
             placeholder="enter description"
           />
           <br />
@@ -101,33 +147,29 @@ function Note(props) {
   return (
     <>
       <Frame>
-        <li className={classes.item}>
-          <span
-            onClick={() => {
-              changeContent(
-                <>{/*EDIT AS IN CANCEL */} 
-                  <h2>{props.data}</h2>
-                  <p>Priority: 1</p>
-                  <p>Plan text... probably some info about the plan</p>
-                  <div>
-                    <button className={classes.button} onClick={onEditHandler}>
-                      Edit
-                    </button>
-                    <button
-                      className={classes.button}
-                      onClick={onDeleteHandler}
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </>
-              );
-              setButtonPopup(true);
-            }}
-          >
-            {/*TODO change props.data.title of the note*/}
-            {props.data}
-          </span>
+        <li
+          onClick={() => {
+            changeContent(
+              <>
+                <h2>{props.data.title}</h2>
+                <p>Priority: {props.data.priority}</p>
+                <p>{props.data.description}</p>
+                <div>
+                  <button className={classes.button} onClick={onEditHandler}>
+                    Edit
+                  </button>
+                  <button className={classes.button} onClick={onDeleteHandler}>
+                    Delete
+                  </button>
+                </div>
+              </>
+            );
+            setButtonPopup(true);
+          }}
+          ref={itemRef}
+          className={classes.item}
+        >
+          <span>{onHover}</span>
         </li>
       </Frame>
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>

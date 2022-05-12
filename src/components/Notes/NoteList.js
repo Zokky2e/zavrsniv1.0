@@ -8,7 +8,7 @@ import Popup from "./Popup";
 function NoteList(props) {
   const currentUser = useAuthValue();
   const [buttonPopup, setButtonPopup] = useState(false);
-  const textInputRef = useRef();
+  const descriptionInputRef = useRef();
   const titleInputRef = useRef();
   const priorityInputRef = useRef();
   function onCancelHandler() {
@@ -20,18 +20,23 @@ function NoteList(props) {
       db,
       currentUser.uid + "/" + props.value + "/notes/" + dateString
     );
-    //TODO add other two refrences into an object then send to database
-    const enteredText = textInputRef.current.value;
+    const enteredDescription = descriptionInputRef.current.value;
+    const enteredTitle = titleInputRef.current.value;
+    const enteredPriority = priorityInputRef.current.value;
+    let note={
+      description: enteredDescription,
+      title: enteredTitle,
+      priority: enteredPriority
+    };
 
-    set(dbRef, enteredText).then(console.log("added note: " + enteredText));
+    set(dbRef, note).then(console.log("added note: " + note));
     setButtonPopup(false);
   }
 
   return (
     <div>
-      <div className={classes.date}>date: {props.value}</div>
+      <div className={classes.date}>{props.value}</div>
       <ul className={classes.list}>
-        {/*chaynge the maping of a note by editing the object values */}
         {props.notes.map((note) => (
           <Note date={props.value}  kljuc={note.key} data={note.childData} />
         ))}
@@ -42,17 +47,17 @@ function NoteList(props) {
           <br />
           <input
             id="title"
-            type="title"
+            type="text"
             ref={titleInputRef}
             placeholder="enter title"
           />
           <br />
-          <label htmlFor="text">Description:</label>
+          <label htmlFor="description">Description:</label>
           <br />
           <input
-            id="text"
+            id="description"
             type="text"
-            ref={textInputRef}
+            ref={descriptionInputRef}
             placeholder="enter description"
           />
           <br />

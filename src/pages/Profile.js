@@ -3,6 +3,7 @@ import { auth } from "../firebase";
 import { useAuthValue } from "../components/User/UserContext";
 import { useNavigate } from "react-router-dom";
 import Frame from "../components/UI/Frame";
+import classes from "../components/Notes/NoteList.module.css";
 
 function Profile() {
   const currentUser = useAuthValue();
@@ -11,18 +12,16 @@ function Profile() {
     signOut(auth).then(navigate("/", { replace: true }));
   }
 
-  
-
   return (
-    <Frame>
-      <div style={{"margin": "15px"}}>
+    <div className={classes.container}>
+      <Frame>
         <p>
           <strong>Email: </strong>
           {currentUser?.email}
         </p>
         <button onClick={onSignOutHandler}>Sign Out</button>
-      </div>
-    </Frame>
+      </Frame>
+    </div>
   );
 }
 

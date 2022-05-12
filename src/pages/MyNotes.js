@@ -23,8 +23,11 @@ function MyNotes() {
 
   useEffect(() => {
     if (currentUser !== null) {
-      //TODO this note needs to become a fullout note object list
-      let notes = ["Click me to edit!"];
+      let notes = {
+        title: "Click me!",
+        description: "Edit me!",
+        priority: 1,
+      };
       const dbRef = ref(
         db,
         currentUser.uid + "/" + value.toDateString() + "/notes"
@@ -34,7 +37,6 @@ function MyNotes() {
           notes = [];
           setLoadedNotes([]);
           snapshot.forEach((childSnapshot) => {
-            //TODO this will be edited into an object with key, title, text and priority
             const note = {
               key: childSnapshot.key.toString(),
               childData: childSnapshot.val(),
@@ -42,7 +44,9 @@ function MyNotes() {
             notes.push(note);
           });
           setLoadedNotes(notes);
-        } else set(dbRef, notes);
+        } else {
+          const emptyDbRef = ref(db, currentUser.uid + "/" + value.toDateString() + "/notes/"+Date.now().toString())
+          set(emptyDbRef, notes);}
       });
     }
   }, [currentUser, value]);
