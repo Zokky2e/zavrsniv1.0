@@ -14,8 +14,8 @@ function SignIn() {
   let inactive = classes.inactive;
 
   return (
-    <div className={classes.content}>
-      <ul className={classes.signIn} role="tablist">
+    <div className={classes.container}>
+      <ul className={classes.signIn}>
         <li className={isLogin ? active : inactive} onClick={onClickLoginHandler}>
           <span className={classes.item}>Login</span>
         </li>

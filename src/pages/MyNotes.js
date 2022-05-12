@@ -51,7 +51,7 @@ function MyNotes() {
     }
   }, [currentUser, value]);
   if (currentUser === null) {
-    return <div>Not signed in, no notes</div>;
+    return <><br/><div className={classes.container}>Not signed in.</div></>;
   }
 
   if (calendarIsOpen) {

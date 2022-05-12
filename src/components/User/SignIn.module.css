@@ -1,13 +1,19 @@
 .signIn {
-  margin-left: -20px;
-  width: 100%;
+  width: 110%;
   height: 100px;
 
   list-style: none;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  flex-direction: row;
   margin-bottom: -30px;
+  
+}
+
+.container {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .item {
