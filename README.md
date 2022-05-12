@@ -1,3 +1,11 @@
+# Moj zavrsni rad na 3.godini računarstva
+
+Tema: Web aplikacija za planiranje događaja
+
+# My final paper on 3rd year of computer science
+
+Topic: Web application for event planning
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
