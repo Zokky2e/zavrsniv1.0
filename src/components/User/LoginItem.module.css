@@ -30,16 +30,16 @@
   .actions button {
     font: inherit;
     cursor: pointer;
-    background-color: #89B6C5;
-    color: #46366F;
+    background-color: var(--misc);
+  color: var(--navbar);
     padding: 0.5rem 1.5rem;
-    border: 1px solid #46366F;
+    border: 1px solid var(--misc);
     border-radius: 4px;
     font-weight: bold;
   }
   
   .actions button:hover,
   .actions button:active {
-    background-color: #46366F;
-    color: #89B6C5;
+    background-color: var(--navbar);
+  color: var(--misc);
   }

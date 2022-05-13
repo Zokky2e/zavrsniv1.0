@@ -63,7 +63,7 @@ function MyNotes() {
           className={classes.calendarButton}
           onClick={changeCalendarHandler}
         >
-          Back to notes
+          <i class="bi bi-arrow-left-circle"></i>
         </button>
         <div className={classes.calendar}>
           <Calendar onChange={onChangeDate} value={value} />
@@ -77,7 +77,7 @@ function MyNotes() {
         className={classes.calendarButton}
         onClick={changeCalendarHandler}
       >
-        Calendar
+        <i class="bi bi-calendar-week"></i>
       </button>
         <div>
           <NoteList value={value.toDateString()} notes={loadedNotes} />

@@ -1,18 +1,20 @@
 .item {
-  width: 100%;
-  height: 80px;
+  width: var(--box-frame);
+  height: var(--box-frame);
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
   border-radius: 30px;
+  margin-right: 25px;
   border: 2px;
-  color: #46366f;
+  color: var(--text);
 }
 .item:hover {
   cursor: pointer;
 }
 .item h2 {
-  color: #46366f;
+  color: var(--text);
 }
 
 .onHoverItem {
@@ -20,9 +22,19 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 5px;
   padding-bottom: 2vh;
 }
-
+.onHoverItem div, h2{
+  display: flex;
+  margin: 5px;
+  justify-content: center;
+  justify-items: center;
+}
+.popup{
+  display: block;
+  
+}
 .editNote {
   display: block;
   margin-left: 5px;
@@ -32,20 +44,23 @@
   margin-bottom: 5px;
   margin-left: -5px;
   border-style: none;
-  background: #89b6c5;
-  color: #46366f;
+  background-color: var(--navbar);
+  color: var(--misc);
+  border: 1px solid var(--misc);
   font-size: larger;
   outline: none;
+  
   border-radius: 10px;
   text-align: center;
 }
 .button {
   cursor: pointer;
   margin-left: 5px;
-  height: 30px;
-  width: 50px;
+  height: 35px;
+  width: 55px;
   padding: 0;
-  background: #89b6c5;
+  background-color: var(--misc);
+  color: var(--navbar);
   border-radius: 30px;
   font-size: medium;
   border: none;
@@ -53,8 +68,9 @@
 }
 
 .button:hover {
-  background: #46366f;
-  color: #89b6c5;
+  background-color: var(--navbar);
+  color: var(--misc);
+  border: 1px solid var(--misc);
 }
 
 .newNote {

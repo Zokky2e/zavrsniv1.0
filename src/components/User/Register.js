@@ -2,8 +2,8 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
-import Frame from "../UI/Frame";
 import classes from "./Register.module.css"
+import signInClasses from "./SignIn.module.css";
 function Register() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -42,7 +42,7 @@ function Register() {
   };
 
   return (
-    <Frame>
+    <div className={signInClasses.frame}>
       {error && <div className="auth__error">{error}</div>}
       <form className={classes.form} onSubmit={register} name="registration_form">
         <div className={classes.control}>
@@ -76,7 +76,7 @@ function Register() {
           <button type="submit">Register</button>
         </div>
       </form>
-    </Frame>
+    </div>
   );
 }
 

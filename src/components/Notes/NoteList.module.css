@@ -1,5 +1,5 @@
 .container {
-  width: 60%;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -8,19 +8,17 @@
   height: 25px;
   margin-top: 1vh;
   margin-left: 1vh;
-  display:flex;
+  display: flex;
   justify-content: left;
-  color:#46366f;
+  color: #46366f;
   font-weight: bold;
 }
 
 .list {
   list-style: none;
   width: 100%;
-  
-  display:flex;
-  justify-content: center;
-  flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
   padding: 0;
 }
 
@@ -49,7 +47,8 @@
   margin-right: auto;
   width: 50px;
   padding: 0;
-  background: #89b6c5;
+  background-color: var(--misc);
+  color: var(--navbar);
   border-radius: 30px;
   font-size: medium;
   border: none;
@@ -57,38 +56,40 @@
 }
 
 .button:hover {
-  background: #46366f;
-  color: #89b6c5;
+  background-color: var(--navbar);
+  color: var(--misc);
 }
 .addButton {
   cursor: pointer;
-  height: 35px;
-  width: 135px;
+  width: var(--box-frame);
+  height: var(--box-frame);
+  margin: 5px;
   padding: 0;
-  background: #89b6c5;
+  background-color: var(--navbar);
+  color: var(--misc);
   border-radius: 30px;
-  font-size: medium;
+  font-size: 5vh;
   border: none;
   outline: none;
-  color:#46366f;
-  font-weight: bold;
+  border: 2px dashed var(--misc);
 }
 
 .addButton:hover {
   font-weight: bold;
-  background: #46366f;
-  color: #89b6c5;
+  background-color: var(--navbar);
+  color: var(--misc);
 }
 
 .calendarButton {
   cursor: pointer;
-  height: 3vh;
-  width: 135px;
-  padding: 0;
+  width: calc(var(--box-frame)/5);
+  height: calc(var(--box-frame)/5);
+  margin-top: 10px;
+  padding-top: 3px;
   font-weight: bold;
-  background: #89b6c5;
-  color:#46366f;
-  border-radius: 0px 0px 30px 30px / 0px 0px 30px 30px;
+  background-color: var(--misc);
+  color: var(--navbar);
+  border-radius: 30px;
   font-size: medium;
   border: none;
   outline: none;
@@ -96,14 +97,12 @@
 
 .calendarButton:hover {
   font-weight: bold;
-  background: #46366f;
-  color: #89b6c5;
+  background-color: var(--navbar);
+  color: var(--misc);
 }
 
 .calendar {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  display: block;
   position: fixed;
   top: 25%;
   left: 45%;

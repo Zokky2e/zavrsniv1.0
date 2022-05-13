@@ -15,14 +15,14 @@ function SignIn() {
 
   return (
     <div className={classes.container}>
-      <ul className={classes.signIn}>
-        <li className={isLogin ? active : inactive} onClick={onClickLoginHandler}>
+      <div className={classes.signIn}>
+        <div className={isLogin ? active : inactive} onClick={onClickLoginHandler}>
           <span className={classes.item}>Login</span>
-        </li>
-        <li className={isLogin ? inactive : active} onClick={onClickRegisterHandler}>
+        </div>
+        <div className={isLogin ? inactive : active} onClick={onClickRegisterHandler}>
           <span className={classes.item} >Register</span>
-        </li>
-      </ul>
+        </div>
+      </div>
       <div>{isLogin ? <Login /> : <Register />}</div>
     </div>
   );

@@ -1,14 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+
+:root {
+  --background: #eff0f3;
+  --frame: #fffffe;
+  --text: #0d0d0d;
+  --navbar: #fffffe;
+  --navbar-text: #0d0d0d;
+  --misc: #ff8e3c;
+  --hover: #0d0d0d;
+  --hover-text: #ff8e3c;
+  --box-frame: 25vh;
+  
+  
+}
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
-  
+  font-family: "Open Sans", sans-serif;
+
   margin: auto;
-  background-color: #FFF6D6;
+  background-color: var(--background);
 }
 
 h1 {
@@ -18,15 +32,5 @@ h1 {
 
 h2 {
   font-size: 1.5rem;
-  color: #2c292b;
+  color: var(--text);
 }
-
-/*
-color background: FFF6D6
-color frame: EBDEBE
-color text: 46366F
-color navbar: 46366F
-color navbar text: EBDEBE
-color misc: 89B6C5
-color hover: 79719E
-*/

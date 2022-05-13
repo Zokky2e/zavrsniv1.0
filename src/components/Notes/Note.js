@@ -15,18 +15,15 @@ function Note(props) {
   const priorityInputRef = useRef();
   const [content, changeContent] = useState(null);
   const [onHover, setOnHover] = useState();
-  
-
-  
 
   useEffect(() => {
-    setOnHover(<h2>{props.data.title}</h2>)
+    setOnHover(<h2>{props.data.title}</h2>);
     function onHoverEnterHandler(event) {
       if (itemRef.current.contains(event.target))
         setOnHover(
           <div className={classes.onHoverItem}>
             <h2>{props.data.title}</h2>
-            <div>{props.data.description}</div>
+            <div>{props.data.description.substring(0, 20) + "..."}</div>
           </div>
         );
     }
@@ -72,7 +69,7 @@ function Note(props) {
     if (enteredTitle === "") {
       enteredTitle = props.data.title;
     }
-    if(enteredPriority ===""){
+    if (enteredPriority === "") {
       enteredPriority = props.data.priority;
     }
     let note = {
@@ -80,13 +77,12 @@ function Note(props) {
       title: enteredTitle,
       priority: enteredPriority,
     };
-    set(dbRef, note).then(setButtonPopup(false)).then( onCancelEditHandler());
-    
+    set(dbRef, note).then(setButtonPopup(false)).then(onCancelEditHandler());
   }
   function onCancelEditHandler() {
-    console.log("entered")
+    console.log("entered");
     changeContent(
-      <>
+      <div className={classes.popup}>
         <h2>{props.data.title}</h2>
         <p>Priority: {props.data.priority}</p>
         <p>{props.data.description}</p>
@@ -98,7 +94,7 @@ function Note(props) {
             Delete
           </button>
         </div>
-      </>
+      </div>
     );
   }
 
@@ -133,17 +129,17 @@ function Note(props) {
             placeholder="1-4"
           />
           <br />
+          <button className={classes.button} onClick={onConfirmEditHandler}>
+            &#10004;
+          </button>
+          <button
+            style={{ fontWeight: "bold" }}
+            className={classes.button}
+            onClick={onCancelEditHandler}
+          >
+            &#10005;
+          </button>
         </div>
-        <button className={classes.button} onClick={onConfirmEditHandler}>
-          &#10004;
-        </button>
-        <button
-          style={{ fontWeight: "bold" }}
-          className={classes.button}
-          onClick={onCancelEditHandler}
-        >
-          &#10005;
-        </button>
       </>
     );
   }
@@ -152,9 +148,7 @@ function Note(props) {
     <>
       <Frame>
         <li
-        
           onClick={() => {
-            
             changeContent(
               <>
                 <h2>{props.data.title}</h2>
@@ -175,7 +169,6 @@ function Note(props) {
           ref={itemRef}
           className={classes.item}
         >
-          
           <span>{onHover}</span>
         </li>
       </Frame>

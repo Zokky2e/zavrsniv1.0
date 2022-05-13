@@ -23,10 +23,10 @@ function NoteList(props) {
     const enteredDescription = descriptionInputRef.current.value;
     const enteredTitle = titleInputRef.current.value;
     const enteredPriority = priorityInputRef.current.value;
-    let note={
+    let note = {
       description: enteredDescription,
       title: enteredTitle,
-      priority: enteredPriority
+      priority: enteredPriority,
     };
 
     set(dbRef, note).then(console.log("added note: " + note));
@@ -38,8 +38,16 @@ function NoteList(props) {
       <div className={classes.date}>{props.value}</div>
       <ul className={classes.list}>
         {props.notes.map((note) => (
-          <Note date={props.value}  kljuc={note.key} data={note.childData} />
+          <Note date={props.value} kljuc={note.key} data={note.childData} />
         ))}
+        <li>
+          <button
+            className={classes.addButton}
+            onClick={() => setButtonPopup(true)}
+          >
+            <i class="bi bi-plus-square"></i>
+          </button>
+        </li>
       </ul>
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
         <div className={classes.newNote}>
@@ -84,12 +92,6 @@ function NoteList(props) {
           </div>
         </div>
       </Popup>
-      <button
-        className={classes.addButton}
-        onClick={() => setButtonPopup(true)}
-      >
-        Add new Note
-      </button>
     </div>
   );
 }

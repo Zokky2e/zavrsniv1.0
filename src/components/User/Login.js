@@ -3,8 +3,8 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
-import Frame from "../UI/Frame";
 import classes from './LoginItem.module.css';
+import signInClasses from "./SignIn.module.css";
 function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -20,7 +20,7 @@ function Login() {
   };
 
   return (
-    <Frame>
+    <div className={signInClasses.frame}>
       {error && <div className="auth__error">{error}</div>}
       <form className={classes.form} onSubmit={login} name="login_form">
         <div className={classes.control}>
@@ -45,7 +45,7 @@ function Login() {
           <button type="submit">Login</button>
         </div>
       </form>
-    </Frame>
+    </div>
   );
 }
 export default Login;
