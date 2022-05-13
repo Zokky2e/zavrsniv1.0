@@ -22,6 +22,7 @@ function MyNotes() {
   }
 
   useEffect(() => {
+    
     if (currentUser !== null) {
       let notes = {
         title: "Click me!",
@@ -33,6 +34,7 @@ function MyNotes() {
         currentUser.uid + "/" + value.toDateString() + "/notes"
       );
       onValue(dbRef, (snapshot) => {
+        setLoadedNotes([]);
         if (snapshot.exists()) {
           notes = [];
           setLoadedNotes([]);

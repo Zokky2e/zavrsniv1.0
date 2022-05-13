@@ -14,9 +14,13 @@ function Note(props) {
   const titleInputRef = useRef();
   const priorityInputRef = useRef();
   const [content, changeContent] = useState(null);
-  const [onHover, setOnHover] = useState(<h2>{props.data.title}</h2>);
+  const [onHover, setOnHover] = useState();
+  
+
+  
 
   useEffect(() => {
+    setOnHover(<h2>{props.data.title}</h2>)
     function onHoverEnterHandler(event) {
       if (itemRef.current.contains(event.target))
         setOnHover(
@@ -42,7 +46,7 @@ function Note(props) {
       document.removeEventListener("mouseover", onHoverEnterHandler);
       document.removeEventListener("mouseout", onHoverLeaveHandler);
     };
-  });
+  }, [props.value, props.data.description, props.data.title]);
 
   function onDeleteHandler() {
     changeContent(null);
@@ -148,7 +152,9 @@ function Note(props) {
     <>
       <Frame>
         <li
+        
           onClick={() => {
+            
             changeContent(
               <>
                 <h2>{props.data.title}</h2>
@@ -169,6 +175,7 @@ function Note(props) {
           ref={itemRef}
           className={classes.item}
         >
+          
           <span>{onHover}</span>
         </li>
       </Frame>
