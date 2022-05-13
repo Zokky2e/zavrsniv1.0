@@ -8,6 +8,11 @@ Promjene su sortirane po commitovima, koristenjem notacije verzija(npr. 1.9.5)
 Topic: Web application for event planning.\
 Changes are sorted by commits, using version notation (e.g. 1.9.5)
 
+
+# Demo preview of the app
+
+![](PlannerDemo.gif)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
