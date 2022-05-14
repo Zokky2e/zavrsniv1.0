@@ -10,7 +10,7 @@ function MainNavigation() {
   const currentUser = useAuthValue();
   const theme = useThemeValue();
   const [content, setContent] = useState(null);
-  const [darkMode, setDarkMode] = useState();
+  const [darkMode, setDarkMode] = useState(true);
   const userName = currentUser?.email.substring(0, 6);
   useEffect(() => {
     theme.changeTheme(darkMode ? themes.dark : themes.light);

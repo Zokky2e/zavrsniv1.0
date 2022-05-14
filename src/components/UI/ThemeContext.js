@@ -6,14 +6,13 @@ export const themes = {
 };
 
 export const ThemeContext = createContext({
-  theme: themes.light,
+  theme: themes.dark,
   changeTheme: () => {},
 });
 export function ThemeProvider(props) {
-  const [theme, setTheme] = useState(themes.light);
+  const [theme, setTheme] = useState(themes.dark);
 
   function changeTheme(theme) {
-      console.log("i changed the theme")
     setTheme(theme);
   }
 
@@ -28,7 +27,8 @@ export function ThemeProvider(props) {
         document.body.classList.add("black-content");
         break;
       default:
-        document.body.classList.remove("black-content");
+        document.body.classList.add("black-content");
+        document.body.classList.remove("white-content");
         break;
     }
   }, [theme]);

@@ -2,16 +2,16 @@
 
 
 .black-content {
-  --background: #232946;
-  --frame: #B8C1EC;
+  --background: #121212;
+  --frame: #222222;
   --text: #FFFFFE;
-  --navbar: #B8C1EC;
+  --navbar: #222222;
   --navbar-text: #FFFFFE;
   --misc: #ff8e3c;
   --hover: #FFFFFE;
   --hover-text: #ff8e3c;
   --box-frame: 25vh;
-  
+  --frame-border: #FFFFFE;
   
 }
 
