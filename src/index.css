@@ -1,6 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
 
-:root {
+
+.black-content {
+  --background: #232946;
+  --frame: #B8C1EC;
+  --text: #FFFFFE;
+  --navbar: #B8C1EC;
+  --navbar-text: #FFFFFE;
+  --misc: #ff8e3c;
+  --hover: #FFFFFE;
+  --hover-text: #ff8e3c;
+  --box-frame: 25vh;
+  
+  
+}
+
+.white-content{
   --background: #eff0f3;
   --frame: #fffffe;
   --text: #0d0d0d;
@@ -10,9 +25,10 @@
   --hover: #0d0d0d;
   --hover-text: #ff8e3c;
   --box-frame: 25vh;
-  
+  --dark-background: #232946;
   
 }
+
 
 * {
   box-sizing: border-box;
@@ -20,9 +36,8 @@
 
 body {
   font-family: "Open Sans", sans-serif;
-
-  margin: auto;
   background-color: var(--background);
+  margin: auto;
 }
 
 h1 {

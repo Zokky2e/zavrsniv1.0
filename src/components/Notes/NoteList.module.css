@@ -10,7 +10,7 @@
   margin-left: 1vh;
   display: flex;
   justify-content: left;
-  color: #46366f;
+  color: var(--text);
   font-weight: bold;
 }
 

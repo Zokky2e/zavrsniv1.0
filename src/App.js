@@ -8,6 +8,7 @@ import { AuthProvider } from "./components/User/UserContext";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
 import Profile from "./pages/Profile";
+import { ThemeProvider } from "./components/UI/ThemeContext";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <AuthProvider value={currentUser}>
+      <ThemeProvider>
       <Layout>
       <Routes>
         <Route path="/" element={<MyNotes/>}/>
@@ -27,6 +29,7 @@ function App() {
         
       </Routes>
     </Layout>
+      </ThemeProvider>
     </AuthProvider>
   );
 }
