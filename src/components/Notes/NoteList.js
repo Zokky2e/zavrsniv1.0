@@ -45,7 +45,7 @@ function NoteList(props) {
             className={classes.addButton}
             onClick={() => setButtonPopup(true)}
           >
-            <i class="bi bi-plus-square"></i>
+            <i className="bi bi-plus-square"></i>
           </button>
         </li>
       </ul>

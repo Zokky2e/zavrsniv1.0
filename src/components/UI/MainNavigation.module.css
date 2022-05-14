@@ -15,13 +15,11 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-}
-
-.inner ul {
   list-style: none;
   padding: 0;
   display: flex;
 }
+
 
 .header li {
   margin-left: 2rem;
@@ -37,11 +35,12 @@
 
 
 .profile {
+  cursor: pointer;
   width: calc(var(--box-frame)/5);
   height: calc(var(--box-frame)/5);
   position: relative;
   left: -2rem;
-  margin-top: 10px;
+  margin-top: 25px;
   border-radius: 50px;
   display: inline-block;
   background-color: var(--misc);
@@ -60,6 +59,8 @@
   border-style: solid;
   border-width: 2px;
 }
+
+
 
 .notes {
   position: relative;

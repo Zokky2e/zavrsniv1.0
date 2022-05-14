@@ -32,8 +32,9 @@
   margin-bottom: 5px;
   margin-left: -5px;
   border-style: none;
-  background: #89b6c5;
-  color: #46366f;
+  background-color: var(--navbar);
+  color: var(--misc);
+  border: 1px solid var(--misc);
   font-size: larger;
   outline: none;
   border-radius: 10px;
