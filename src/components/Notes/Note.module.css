@@ -42,7 +42,6 @@
 .editNote input {
   height: 35px;
   margin-bottom: 5px;
-  margin-left: -5px;
   border-style: none;
   background-color: var(--navbar);
   color: var(--misc);
@@ -53,14 +52,19 @@
   border-radius: 10px;
   text-align: center;
 }
+.buttonHolder{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .button {
   cursor: pointer;
-  margin-left: 5px;
   height: 35px;
   width: 55px;
   padding: 0;
   background-color: var(--misc);
-  color: var(--navbar);
+  color: var(--navbar-text);
   border-radius: 30px;
   font-size: medium;
   border: none;

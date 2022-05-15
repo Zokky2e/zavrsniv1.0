@@ -86,7 +86,7 @@ function Note(props) {
         <h2>{props.data.title}</h2>
         <p>Priority: {props.data.priority}</p>
         <p>{props.data.description}</p>
-        <div>
+        <div className={classes.buttonHolder}>
           <button className={classes.button} onClick={onEditHandler}>
             Edit
           </button>
@@ -129,16 +129,18 @@ function Note(props) {
             placeholder="1-4"
           />
           <br />
-          <button className={classes.button} onClick={onConfirmEditHandler}>
-            &#10004;
-          </button>
-          <button
-            style={{ fontWeight: "bold" }}
-            className={classes.button}
-            onClick={onCancelEditHandler}
-          >
-            &#10005;
-          </button>
+          <div className={classes.buttonHolder}>
+            <button className={classes.button} onClick={onConfirmEditHandler}>
+              &#10004;
+            </button>
+            <button
+              style={{ fontWeight: "bold" }}
+              className={classes.button}
+              onClick={onCancelEditHandler}
+            >
+              &#10005;
+            </button>
+          </div>
         </div>
       </>
     );
@@ -154,7 +156,7 @@ function Note(props) {
                 <h2>{props.data.title}</h2>
                 <p>Priority: {props.data.priority}</p>
                 <p>{props.data.description}</p>
-                <div>
+                <div className={classes.buttonHolder}>
                   <button className={classes.button} onClick={onEditHandler}>
                     Edit
                   </button>

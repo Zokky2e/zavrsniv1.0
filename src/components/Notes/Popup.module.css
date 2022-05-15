@@ -38,7 +38,7 @@
   right: 16px;
   font-size: larger;
   background-color: var(--misc);
-  color: var(--navbar);
+  color: var(--navbar-text);
   border-radius: 30px;
   cursor: pointer;
   border: 0cm;

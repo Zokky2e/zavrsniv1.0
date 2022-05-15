@@ -1,16 +1,18 @@
-
 import { React, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthValue } from "../User/UserContext";
 
 import classes from "./MainNavigation.module.css";
-import {themes, useThemeValue} from "./ThemeContext";
+import { themes, useThemeValue } from "./ThemeContext";
 
 function MainNavigation() {
+  const time = new Date();
   const currentUser = useAuthValue();
   const theme = useThemeValue();
   const [content, setContent] = useState(null);
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(
+    !(7 <= time.getHours() && time.getHours() <= 19)
+  );
   const userName = currentUser?.email.substring(0, 6);
   useEffect(() => {
     theme.changeTheme(darkMode ? themes.dark : themes.light);
@@ -29,18 +31,15 @@ function MainNavigation() {
     }
   }, [currentUser, userName, darkMode, theme]);
 
-
-
   return (
     <header className={classes.header}>
       <div className={classes.inner}>
         <li>{content}</li>
-        <div style={{ marginLeft: "15px" }} >
+        <div style={{ marginLeft: "15px" }}>
           <span
             className={classes.profile}
             onClick={() => {
-              setDarkMode(!darkMode)
-              
+              setDarkMode(!darkMode);
             }}
           >
             {darkMode ? "dark" : "light"}
@@ -49,9 +48,7 @@ function MainNavigation() {
         <li className={classes.notes}>
           <Link to="/">Notes</Link>
         </li>
-        
       </div>
-      
     </header>
   );
 }
