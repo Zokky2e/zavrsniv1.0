@@ -80,7 +80,6 @@ function Note(props) {
     set(dbRef, note).then(setButtonPopup(false)).then(onCancelEditHandler());
   }
   function onCancelEditHandler() {
-    console.log("entered");
     changeContent(
       <div className={classes.popup}>
         <h2>{props.data.title}</h2>
