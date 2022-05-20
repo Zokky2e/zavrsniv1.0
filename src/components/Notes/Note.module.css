@@ -1,64 +1,30 @@
 .item {
   width: var(--box-frame);
   height: var(--box-frame);
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   border-radius: 30px;
   margin-right: 25px;
   border: 2px;
   color: var(--text);
 }
-
 .item:hover {
   cursor: pointer;
 }
-
 .item h2 {
   color: var(--text);
 }
-
 .item span:hover {
   cursor: pointer;
 }
 
 .onHoverItem {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  margin: 5px;
-  padding-bottom: 2vh;
-}
-
-.onHoverItem div, .onHoverItem h2 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 5px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  justify-items: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .popup {
@@ -69,7 +35,6 @@
   display: block;
   margin-left: 5px;
 }
-
 .editNote input {
   height: 35px;
   margin-bottom: 5px;
@@ -84,16 +49,10 @@
 }
 
 .buttonHolder {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  display: grid;
+  column-gap: 2%;
+  justify-content: space-around;
+  grid-template-columns: auto auto;
 }
 
 .button {
@@ -108,7 +67,6 @@
   border: none;
   outline: none;
 }
-
 .button:hover {
   background-color: var(--navbar);
   color: var(--misc);
@@ -126,4 +84,5 @@
   border-radius: 10px;
   text-align: center;
 }
+
 /*# sourceMappingURL=Note.module.css.map */

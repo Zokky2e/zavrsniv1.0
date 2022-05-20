@@ -49,13 +49,12 @@
   align-items: center;
   justify-content: center;
 }
-
 .profile:hover {
   background: var(--navbar);
   color: var(--misc);
   border: var(--misc);
   border-style: solid;
-  border-width: 2px;
+  border-width: 1px;
 }
 
 .notes {

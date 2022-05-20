@@ -78,7 +78,7 @@ function NoteList(props) {
             placeholder="1-4"
           />
           <br />
-          <div className={classes.date}>
+          <div className={classes.buttonHolder}>
             <button className={classes.button} onClick={onAddHandler}>
               &#10004;
             </button>

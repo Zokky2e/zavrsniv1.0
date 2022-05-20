@@ -33,9 +33,9 @@ function Note(props) {
     function onHoverLeaveHandler(event) {
       if (itemRef.current.contains(event.target))
         setOnHover(
-          <>
+          <div className={classes.onHoverItem}>
             <h2>{props.data.title}</h2>
-          </>
+          </div>
         );
     }
 
@@ -84,6 +84,7 @@ function Note(props) {
   }
   function onCancelEditHandler() {
     setUpdatePopup(false);
+    setButtonPopup(true);
   }
 
   return (
@@ -107,7 +108,10 @@ function Note(props) {
           <div className={classes.buttonHolder}>
             <button
               className={classes.button}
-              onClick={() => setUpdatePopup(true)}
+              onClick={() => {
+                setUpdatePopup(true);
+                setButtonPopup(false);
+              }}
             >
               Edit
             </button>

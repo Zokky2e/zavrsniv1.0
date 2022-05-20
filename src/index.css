@@ -8,12 +8,12 @@
   --misc: #ff8e3c;
   --hover: #FFFFFE;
   --hover-text: #ff8e3c;
-  --box-frame: 25vh;
+  --box-frame: 250px;
   --frame-border: #FFFFFE;
   background-color: var(--background);
 }
 
-.white-content{
+.white-content {
   --background: #eff0f3;
   --frame: #fffffe;
   --text: #0d0d0d;
@@ -22,7 +22,7 @@
   --misc: #ff8e3c;
   --hover: #0d0d0d;
   --hover-text: #ff8e3c;
-  --box-frame: 25vh;
+  --box-frame: 250px;
   --dark-background: #232946;
   background-color: var(--background);
 }
