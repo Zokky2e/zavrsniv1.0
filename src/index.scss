@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+
+
 .black-content {
   --background: #121212;
   --frame: #222222;
@@ -10,7 +12,8 @@
   --hover-text: #ff8e3c;
   --box-frame: 25vh;
   --frame-border: #FFFFFE;
-  background-color: var(--background);
+  background-color: --background;
+  
 }
 
 .white-content{
@@ -24,8 +27,9 @@
   --hover-text: #ff8e3c;
   --box-frame: 25vh;
   --dark-background: #232946;
-  background-color: var(--background);
+  background-color: --background;
 }
+
 
 * {
   box-sizing: border-box;
@@ -44,5 +48,3 @@ h1 {
 h2 {
   font-size: 1.5rem;
 }
-
-/*# sourceMappingURL=index.css.map */

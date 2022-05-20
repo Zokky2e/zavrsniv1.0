@@ -18,10 +18,13 @@
   list-style: none;
   padding: 0;
   display: flex;
+  
 }
+
 
 .header li {
   margin-left: 2rem;
+  
 }
 
 .header a {
@@ -33,10 +36,11 @@
   color: var(--navbar-text);
 }
 
+
 .profile {
   cursor: pointer;
-  width: calc(var(--box-frame) / 5);
-  height: calc(var(--box-frame) / 5);
+  width: calc(var(--box-frame)/5);
+  height: calc(var(--box-frame)/5);
   position: relative;
   left: -2rem;
   margin-top: 25px;
@@ -48,6 +52,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .profile:hover {
@@ -58,9 +63,9 @@
   border-width: 2px;
 }
 
+
+
 .notes {
   position: relative;
   top: 15px;
 }
-
-/*# sourceMappingURL=MainNavigation.module.css.map */

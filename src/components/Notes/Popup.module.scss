@@ -8,9 +8,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #46366f;
+  color:#46366f;
 }
-
 .inner {
   position: relative;
   padding: 32px;
@@ -20,13 +19,12 @@
   max-width: 600px;
   background-color: var(--navbar);
   color: var(--text);
-  border-radius: 30px 30px 30px 30px/30px 30px 30px 30px;
+  border-radius: 30px 30px 30px 30px / 30px 30px 30px 30px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.202);
+  h2 {
+    color: var(--text);
+  }
 }
-.inner h2 {
-  color: var(--text);
-}
-
 .children {
   display: flex;
   justify-content: center;
@@ -43,11 +41,9 @@
   border-radius: 30px;
   cursor: pointer;
   border: 0cm;
+  &:hover {
+    background-color: var(--navbar);
+    color: var(--misc);
+    border: 1px solid var(--misc);
+  }
 }
-.button:hover {
-  background-color: var(--navbar);
-  color: var(--misc);
-  border: 1px solid var(--misc);
-}
-
-/*# sourceMappingURL=Popup.module.css.map */

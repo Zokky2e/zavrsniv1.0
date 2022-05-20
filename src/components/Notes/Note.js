@@ -8,12 +8,14 @@ import Popup from "./Popup";
 
 function Note(props) {
   const [buttonPopup, setButtonPopup] = useState(false);
+  const [updatePopup, setUpdatePopup] = useState(false);
   const currentUser = useAuthValue();
+
+  const [title, changeTitle] = useState(props.data.title);
+  const [description, changeDescription] = useState(props.data.description);
+  const [priority, changePriority] = useState(props.data.priority);
+
   const itemRef = useRef();
-  const descriptionInputRef = useRef();
-  const titleInputRef = useRef();
-  const priorityInputRef = useRef();
-  const [content, changeContent] = useState(null);
   const [onHover, setOnHover] = useState();
 
   useEffect(() => {
@@ -46,7 +48,6 @@ function Note(props) {
   }, [props.value, props.data.description, props.data.title]);
 
   function onDeleteHandler() {
-    changeContent(null);
     setButtonPopup(false);
     const dbRef = ref(
       db,
@@ -60,9 +61,9 @@ function Note(props) {
       db,
       currentUser.uid + "/" + props.date + "/notes/" + props?.kljuc
     );
-    let enteredDescription = descriptionInputRef.current.value;
-    let enteredTitle = titleInputRef.current.value;
-    let enteredPriority = priorityInputRef.current.value;
+    let enteredDescription = description;
+    let enteredTitle = title;
+    let enteredPriority = priority;
     if (enteredDescription === "") {
       enteredDescription = props.data.description;
     }
@@ -77,72 +78,12 @@ function Note(props) {
       title: enteredTitle,
       priority: enteredPriority,
     };
-    set(dbRef, note).then(setButtonPopup(false)).then(onCancelEditHandler());
+    set(dbRef, note)
+      .then(setButtonPopup(false))
+      .then(() => setUpdatePopup(false));
   }
   function onCancelEditHandler() {
-    changeContent(
-      <div className={classes.popup}>
-        <h2>{props.data.title}</h2>
-        <p>Priority: {props.data.priority}</p>
-        <p>{props.data.description}</p>
-        <div className={classes.buttonHolder}>
-          <button className={classes.button} onClick={onEditHandler}>
-            Edit
-          </button>
-          <button className={classes.button} onClick={onDeleteHandler}>
-            Delete
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  function onEditHandler() {
-    changeContent(
-      <>
-        <div className={classes.editNote}>
-          <label htmlFor="title">Title:</label>
-          <br />
-          <input
-            id="title"
-            type="text"
-            ref={titleInputRef}
-            placeholder="enter title"
-          />
-          <br />
-          <label htmlFor="description">Description:</label>
-          <br />
-          <input
-            id="description"
-            type="text"
-            ref={descriptionInputRef}
-            placeholder="enter description"
-          />
-          <br />
-          <label htmlFor="priority">Priority:</label>
-          <br />
-          <input
-            id="priority"
-            type="number"
-            ref={priorityInputRef}
-            placeholder="1-4"
-          />
-          <br />
-          <div className={classes.buttonHolder}>
-            <button className={classes.button} onClick={onConfirmEditHandler}>
-              &#10004;
-            </button>
-            <button
-              style={{ fontWeight: "bold" }}
-              className={classes.button}
-              onClick={onCancelEditHandler}
-            >
-              &#10005;
-            </button>
-          </div>
-        </div>
-      </>
-    );
+    setUpdatePopup(false);
   }
 
   return (
@@ -150,21 +91,6 @@ function Note(props) {
       <Frame>
         <li
           onClick={() => {
-            changeContent(
-              <>
-                <h2>{props.data.title}</h2>
-                <p>Priority: {props.data.priority}</p>
-                <p>{props.data.description}</p>
-                <div className={classes.buttonHolder}>
-                  <button className={classes.button} onClick={onEditHandler}>
-                    Edit
-                  </button>
-                  <button className={classes.button} onClick={onDeleteHandler}>
-                    Delete
-                  </button>
-                </div>
-              </>
-            );
             setButtonPopup(true);
           }}
           ref={itemRef}
@@ -175,9 +101,67 @@ function Note(props) {
       </Frame>
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
         <div>
-          {content}
+          <h2>{props.data.title}</h2>
+          <p>Priority: {props.data.priority}</p>
+          <p>{props.data.description}</p>
+          <div className={classes.buttonHolder}>
+            <button
+              className={classes.button}
+              onClick={() => setUpdatePopup(true)}
+            >
+              Edit
+            </button>
+            <button className={classes.button} onClick={onDeleteHandler}>
+              Delete
+            </button>
+          </div>
           <br />
         </div>
+      </Popup>
+      <Popup trigger={updatePopup} setTrigger={setUpdatePopup}>
+        <>
+          <div className={classes.editNote}>
+            <label htmlFor="title">Title:</label>
+            <br />
+            <input
+              id="title"
+              type="text"
+              value={title}
+              onChange={(event) => changeTitle(event.target.value)}
+            />
+            <br />
+            <label htmlFor="description">Description:</label>
+            <br />
+            <input
+              id="description"
+              type="text"
+              value={description}
+              onChange={(event) => changeDescription(event.target.value)}
+            />
+            <br />
+            <label htmlFor="priority">Priority:</label>
+            <br />
+            <input
+              id="priority"
+              type="number"
+              value={priority}
+              onChange={(event) => changePriority(event.target.value)}
+            />
+            <br />
+            <div className={classes.buttonHolder}>
+              <button className={classes.button} onClick={onConfirmEditHandler}>
+                &#10004;
+              </button>
+              <button
+                style={{ fontWeight: "bold" }}
+                className={classes.button}
+                onClick={onCancelEditHandler}
+              >
+                &#10005;
+              </button>
+            </div>
+          </div>
+        </>
       </Popup>
     </>
   );

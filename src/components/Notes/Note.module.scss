@@ -1,0 +1,92 @@
+.item {
+  width: var(--box-frame);
+  height: var(--box-frame);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  border-radius: 30px;
+  margin-right: 25px;
+  border: 2px;
+  color: var(--text);
+  &:hover {
+    cursor: pointer;
+  }
+  h2 {
+    color: var(--text);
+  }
+  span:hover {
+    cursor: pointer;
+  }
+}
+
+.onHoverItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 5px;
+  padding-bottom: 2vh;
+  div, h2{
+    display: flex;
+    margin: 5px;
+    justify-content: center;
+    justify-items: center;
+  }
+}
+.popup{
+  display: block;
+  
+}
+.editNote {
+  display: block;
+  margin-left: 5px;
+  input {
+    height: 35px;
+    margin-bottom: 5px;
+    border-style: none;
+    background-color: var(--navbar);
+    color: var(--misc);
+    border: 1px solid var(--misc);
+    font-size: larger;
+    outline: none;
+    
+    border-radius: 10px;
+    text-align: center;
+  }
+}
+.buttonHolder{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.button {
+  cursor: pointer;
+  height: 35px;
+  width: 55px;
+  padding: 0;
+  background-color: var(--misc);
+  color: var(--navbar-text);
+  border-radius: 30px;
+  font-size: medium;
+  border: none;
+  outline: none;
+  &:hover {
+    background-color: var(--navbar);
+    color: var(--misc);
+    border: 1px solid var(--misc);
+  }
+}
+
+.newNote {
+  height: 35px;
+  margin-bottom: 5px;
+  border-style: none;
+  background: #89b6c5;
+  color: #46366f;
+  font-size: larger;
+  outline: none;
+  border-radius: 10px;
+  text-align: center;
+}

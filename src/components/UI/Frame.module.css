@@ -1,15 +1,14 @@
-
-
-
-.frame{
-    display: inline-block;
-    background-color: var(--frame);
-    width: var(--box-frame);
-    height: var(--box-frame);
-    max-width: 1050px;
-    margin: 5px;
-    border: 2px solid var(--frame-border);
-    border-radius: 10px;
-    border-radius: 30px 30px 30px 30px / 30px 30px 30px 30px; 
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.202);
+.frame {
+  display: inline-block;
+  background-color: var(--frame);
+  width: var(--box-frame);
+  height: var(--box-frame);
+  max-width: 1050px;
+  margin: 5px;
+  border: 2px solid var(--frame-border);
+  border-radius: 10px;
+  border-radius: 30px 30px 30px 30px/30px 30px 30px 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.202);
 }
+
+/*# sourceMappingURL=Frame.module.css.map */
