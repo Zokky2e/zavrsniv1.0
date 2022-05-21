@@ -22,7 +22,6 @@ function MyNotes() {
   }
 
   useEffect(() => {
-    
     if (currentUser !== null) {
       let notes = {
         title: "Click me!",
@@ -47,13 +46,26 @@ function MyNotes() {
           });
           setLoadedNotes(notes);
         } else {
-          const emptyDbRef = ref(db, currentUser.uid + "/" + value.toDateString() + "/notes/"+Date.now().toString())
-          set(emptyDbRef, notes);}
+          const emptyDbRef = ref(
+            db,
+            currentUser.uid +
+              "/" +
+              value.toDateString() +
+              "/notes/" +
+              Date.now().toString()
+          );
+          set(emptyDbRef, notes);
+        }
       });
     }
   }, [currentUser, value]);
   if (currentUser === null) {
-    return <><br/><div className={classes.container}>Not signed in.</div></>;
+    return (
+      <>
+        <br />
+        <div className={classes.container}>Not signed in.</div>
+      </>
+    );
   }
 
   if (calendarIsOpen) {
@@ -72,16 +84,16 @@ function MyNotes() {
     );
   }
   return (
-    <div  className={classes.container}>
+    <div className={classes.container}>
       <button
         className={classes.calendarButton}
         onClick={changeCalendarHandler}
       >
         <i className="bi bi-calendar-week"></i>
       </button>
-        <div>
-          <NoteList value={value.toDateString()} notes={loadedNotes} />
-        </div>
+      <div>
+        <NoteList value={value.toDateString()} notes={loadedNotes} />
+      </div>
     </div>
   );
 }

@@ -11,7 +11,7 @@ function MainNavigation() {
   const theme = useThemeValue();
   const [content, setContent] = useState(null);
   const [darkMode, setDarkMode] = useState(
-    !(7 <= time.getHours() && time.getHours() <= 19)
+    (7 <= time.getHours() && time.getHours() <= 19)
   );
   const userName = currentUser?.email.substring(0, 6);
   useEffect(() => {
