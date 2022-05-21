@@ -4,6 +4,7 @@ import { useAuthValue } from "../User/UserContext";
 
 import classes from "./MainNavigation.module.css";
 import { themes, useThemeValue } from "./ThemeContext";
+import ToggleSwitch from "./ToggleSwitch";
 
 function MainNavigation() {
   const time = new Date();
@@ -35,18 +36,12 @@ function MainNavigation() {
     <header className={classes.header}>
       <div className={classes.inner}>
         <li>{content}</li>
-        <div style={{ marginLeft: "15px" }}>
-          <span
-            className={classes.profile}
-            onClick={() => {
-              setDarkMode(!darkMode);
-            }}
-          >
-            {darkMode ? "dark" : "light"}
-          </span>
-        </div>
+        
         <li className={classes.notes}>
           <Link to="/">Notes</Link>
+        </li>
+        <li className={classes.toggleSwitch}>
+          <ToggleSwitch darkMode={darkMode} changeMode={setDarkMode}/>
         </li>
       </div>
     </header>

@@ -55,7 +55,7 @@
   font-size: medium;
   border: none;
   outline: none;
-  ž &:hover {
+  &:hover {
     background-color: var(--navbar);
     color: var(--misc);
   }
@@ -69,15 +69,10 @@
   background-color: var(--navbar);
   color: var(--misc);
   border-radius: 30px;
-  font-size: 5vh;
+  font-size: 2.5rem;
   border: none;
   outline: none;
   border: 2px dashed var(--misc);
-  &:hover {
-    font-weight: bold;
-    background-color: var(--navbar);
-    color: var(--misc);
-  }
 }
 
 .calendarButton {
@@ -111,5 +106,8 @@
   position: fixed;
   top: 25%;
   left: 45%;
+  @media screen and (max-width: 700px){
+    top: 30%;
+  }
   transform: translate(-45%, -25%);
 }

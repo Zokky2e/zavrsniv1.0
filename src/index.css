@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
 .black-content {
+  --theme-button:#FFFFFE;
   --background: #121212;
   --frame: #222222;
   --text: #FFFFFE;
@@ -14,6 +15,7 @@
 }
 
 .white-content {
+  --theme-button: #4b4848;
   --background: #eff0f3;
   --frame: #fffffe;
   --text: #0d0d0d;
