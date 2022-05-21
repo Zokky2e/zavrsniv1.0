@@ -61,10 +61,11 @@ function NoteList(props) {
           <br />
           <label htmlFor="description">Description:</label>
           <br />
-          <input
+          <textarea
             id="description"
             type="text"
             ref={descriptionInputRef}
+            rows="2"
           />
           <br />
           <label htmlFor="priority">Priority:</label>

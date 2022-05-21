@@ -142,7 +142,7 @@ function Note(props) {
             <br />
             <label htmlFor="description">Description:</label>
             <br />
-            <input
+            <textarea
               id="description"
               type="text"
               value={description}

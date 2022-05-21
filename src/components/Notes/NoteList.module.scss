@@ -27,7 +27,7 @@
   display: flex;
   flex-direction: column;
   margin-left: 5px;
-  input {
+  input, textarea{
     height: 35px;
     width: 90%;
     margin-left: -5px;
@@ -40,6 +40,11 @@
     outline: none;
     border-radius: 10px;
     text-align: left;
+  }
+  textarea{
+    height: 50px;
+    max-width:225px;
+    overflow: hidden;
   }
 }
 .button {
@@ -104,10 +109,7 @@
 .calendar {
   display: block;
   position: fixed;
-  top: 25%;
+  top: 250px;
   left: 45%;
-  @media screen and (max-width: 700px){
-    top: 30%;
-  }
   transform: translate(-45%, -25%);
 }
