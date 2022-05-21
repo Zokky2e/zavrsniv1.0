@@ -57,7 +57,6 @@ function NoteList(props) {
             id="title"
             type="text"
             ref={titleInputRef}
-            placeholder="enter title"
           />
           <br />
           <label htmlFor="description">Description:</label>
@@ -66,7 +65,6 @@ function NoteList(props) {
             id="description"
             type="text"
             ref={descriptionInputRef}
-            placeholder="enter description"
           />
           <br />
           <label htmlFor="priority">Priority:</label>
@@ -75,7 +73,6 @@ function NoteList(props) {
             id="priority"
             type="number"
             ref={priorityInputRef}
-            placeholder="1-4"
           />
           <br />
           <div className={classes.buttonHolder}>

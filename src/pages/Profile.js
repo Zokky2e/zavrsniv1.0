@@ -13,12 +13,12 @@ function Profile() {
 
   return (
     <div className={classes.containerProfile}>
-        <p>
-          <strong>Email: </strong>
-          {currentUser?.email}
-        </p>
-        <button onClick={onSignOutHandler}>Sign Out</button>
-      
+      <div>
+        <strong>Email: </strong>
+        {currentUser?.email}
+      </div>
+      <br />
+      <button onClick={onSignOutHandler}>Sign Out</button>
     </div>
   );
 }

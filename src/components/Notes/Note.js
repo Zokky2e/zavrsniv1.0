@@ -19,6 +19,9 @@ function Note(props) {
   const [onHover, setOnHover] = useState();
 
   useEffect(() => {
+    changeTitle(props.data.title);
+    changeDescription(props.data.description);
+    changePriority(props.data.priority);
     setOnHover(<h2>{props.data.title}</h2>);
     function onHoverEnterHandler(event) {
       if (itemRef.current.contains(event.target))
@@ -45,7 +48,7 @@ function Note(props) {
       document.removeEventListener("mouseover", onHoverEnterHandler);
       document.removeEventListener("mouseout", onHoverLeaveHandler);
     };
-  }, [props.value, props.data.description, props.data.title]);
+  }, [props]);
 
   function onDeleteHandler() {
     setButtonPopup(false);
@@ -83,6 +86,9 @@ function Note(props) {
       .then(() => setUpdatePopup(false));
   }
   function onCancelEditHandler() {
+    changeTitle(props.data.title);
+    changePriority(props.data.priority);
+    changeDescription(props.data.description);
     setUpdatePopup(false);
     setButtonPopup(true);
   }
