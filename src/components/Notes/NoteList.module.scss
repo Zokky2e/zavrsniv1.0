@@ -34,7 +34,7 @@
     padding-left: 5px;
     border-style: none;
     background-color: var(--navbar);
-    color: var(--misc);
+    color: var(--text);
     border: 1px solid var(--misc);
     font-size: larger;
     outline: none;
@@ -42,7 +42,7 @@
     text-align: left;
   }
   textarea{
-    height: 50px;
+    height: fit-content;
     max-width:225px;
     overflow: hidden;
   }

@@ -16,6 +16,7 @@ function MainNavigation() {
   );
   const userName = currentUser?.email.substring(0, 6);
   useEffect(() => {
+    setContent(null);
     theme.changeTheme(darkMode ? themes.dark : themes.light);
     if (currentUser === null) {
       setContent(
@@ -36,12 +37,12 @@ function MainNavigation() {
     <header className={classes.header}>
       <div className={classes.inner}>
         <li>{content}</li>
-        
+
         <li className={classes.notes}>
           <Link to="/">Notes</Link>
         </li>
         <li className={classes.toggleSwitch}>
-          <ToggleSwitch darkMode={darkMode} changeMode={setDarkMode}/>
+          <ToggleSwitch darkMode={darkMode} changeMode={setDarkMode} />
         </li>
       </div>
     </header>

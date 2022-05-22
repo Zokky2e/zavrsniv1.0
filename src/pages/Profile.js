@@ -10,7 +10,6 @@ function Profile() {
   function onSignOutHandler() {
     signOut(auth).then(navigate("/", { replace: true }));
   }
-
   return (
     <div className={classes.containerProfile}>
       <div>

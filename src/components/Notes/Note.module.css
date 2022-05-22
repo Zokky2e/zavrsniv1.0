@@ -43,6 +43,7 @@
   margin-left: 5px;
 }
 .editNote input, .editNote textarea {
+  font-family: inherit;
   width: 90%;
   height: 35px;
   max-width: 250px;
@@ -57,7 +58,7 @@
   text-align: left;
 }
 .editNote textarea {
-  height: 50px;
+  height: fit-content;
   max-width: 225px;
   overflow: hidden;
 }
