@@ -6,6 +6,7 @@
   top: 0px;
   background: var(--navbar);
   color: var(--navbar-text);
+  user-select: none; 
 }
 
 .inner {
