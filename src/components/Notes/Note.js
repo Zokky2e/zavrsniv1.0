@@ -32,7 +32,7 @@ function Note(props) {
           </div>
         );
     }
-
+    
     function onHoverLeaveHandler(event) {
       if (itemRef.current.contains(event.target))
         setOnHover(
@@ -48,7 +48,7 @@ function Note(props) {
       document.removeEventListener("mouseover", onHoverEnterHandler);
       document.removeEventListener("mouseout", onHoverLeaveHandler);
     };
-  }, [props]);
+  }, [props, updatePopup]);
 
   function onDeleteHandler() {
     setButtonPopup(false);

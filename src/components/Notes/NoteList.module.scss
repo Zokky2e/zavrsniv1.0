@@ -27,9 +27,10 @@
   display: flex;
   flex-direction: column;
   margin-left: 5px;
-  input, textarea{
+  input,
+  textarea {
     height: 35px;
-    width: 90%;
+    width: 100%;
     margin-left: -5px;
     padding-left: 5px;
     border-style: none;
@@ -41,9 +42,9 @@
     border-radius: 10px;
     text-align: left;
   }
-  textarea{
+  textarea {
     height: fit-content;
-    max-width:225px;
+    max-width: 250px;
     overflow: hidden;
   }
 }
@@ -55,7 +56,7 @@
   width: 50px;
   padding: 0;
   background-color: var(--misc);
-  color: var(--navbar);
+  color: var(--text);
   border-radius: 30px;
   font-size: medium;
   border: none;
@@ -63,6 +64,7 @@
   &:hover {
     background-color: var(--navbar);
     color: var(--misc);
+    border: 1px solid var(--misc);
   }
 }
 .addButton {
