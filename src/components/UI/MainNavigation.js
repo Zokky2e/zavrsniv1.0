@@ -39,7 +39,7 @@ function MainNavigation() {
         <li>{content}</li>
 
         <li className={classes.notes}>
-          <Link to="/">Notes</Link>
+          <Link to="/">My Plans</Link>
         </li>
         <li className={classes.toggleSwitch}>
           <ToggleSwitch darkMode={darkMode} changeMode={setDarkMode} />
