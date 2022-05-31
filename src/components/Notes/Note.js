@@ -42,11 +42,11 @@ function Note(props) {
         );
     }
 
-    document.addEventListener("mouseover", onHoverEnterHandler);
-    document.addEventListener("mouseout", onHoverLeaveHandler);
+    document.addEventListener("pointerover", onHoverEnterHandler);
+    document.addEventListener("pointerout", onHoverLeaveHandler);
     return () => {
-      document.removeEventListener("mouseover", onHoverEnterHandler);
-      document.removeEventListener("mouseout", onHoverLeaveHandler);
+      document.removeEventListener("pointerover", onHoverEnterHandler);
+      document.removeEventListener("pointerout", onHoverLeaveHandler);
     };
   }, [props, updatePopup]);
 

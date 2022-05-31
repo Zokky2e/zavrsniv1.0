@@ -2,7 +2,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
-import classes from "./Register.module.css"
+import classes from "./Register.module.css";
 import signInClasses from "./SignIn.module.css";
 function Register() {
   const navigate = useNavigate();
@@ -25,7 +25,6 @@ function Register() {
     e.preventDefault();
     setError("");
     if (validatePassword()) {
-      // Create a new user with email and password using firebase
       createUserWithEmailAndPassword(auth, email, password)
         .then((res) => {
           console.log(res.user);
@@ -44,7 +43,11 @@ function Register() {
   return (
     <div className={signInClasses.frame}>
       {error && <div className="auth__error">{error}</div>}
-      <form className={classes.form} onSubmit={register} name="registration_form">
+      <form
+        className={classes.form}
+        onSubmit={register}
+        name="registration_form"
+      >
         <div className={classes.control}>
           <label htlmfor="email">Email:</label>
           <input
