@@ -11,7 +11,7 @@ Changes are sorted by commits, using version notation (e.g. 1.9.5)
 
 # Demo preview of the app
 
-![](PlannerDemo.gif)
+
 
 # Getting Started with Create React App
 
