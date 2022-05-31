@@ -22,7 +22,11 @@ function Note(props) {
     changeTitle(props.data.title);
     changeDescription(props.data.description);
     changePriority(props.data.priority);
-    setOnHover(<h2>{props.data.title}</h2>);
+    setOnHover(
+      <div className={classes.onHoverItem}>
+        <h2>{props.data.title}</h2>
+      </div>
+    );
     function onHoverEnterHandler(event) {
       if (itemRef.current.contains(event.target))
         setOnHover(
@@ -32,7 +36,7 @@ function Note(props) {
           </div>
         );
     }
-    
+
     function onHoverLeaveHandler(event) {
       if (itemRef.current.contains(event.target))
         setOnHover(
