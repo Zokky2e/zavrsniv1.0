@@ -32,14 +32,13 @@ function NoteList(props) {
     set(dbRef, note).then(console.log("added note: " + note));
     setButtonPopup(false);
   }
-
   return (
     <div>
       <div className={classes.date}>{props.value}</div>
       <ul className={classes.list}>
-        {props.notes.map((note) => (
+        {(props.notes)&&(props.notes.map((note) => (
           <Note date={props.value} kljuc={note.key} data={note.childData} />
-        ))}
+        )))}
         <li>
           <button
             className={classes.addButton}

@@ -23,11 +23,7 @@ function MyNotes() {
 
   useEffect(() => {
     if (currentUser !== null) {
-      let notes = {
-        title: "Click me!",
-        description: "Edit me!",
-        priority: 1,
-      };
+      let notes = [];
       const dbRef = ref(
         db,
         currentUser.uid + "/" + value.toDateString() + "/notes"
@@ -38,11 +34,13 @@ function MyNotes() {
           notes = [];
           setLoadedNotes([]);
           snapshot.forEach((childSnapshot) => {
-            const note = {
-              key: childSnapshot.key.toString(),
-              childData: childSnapshot.val(),
-            };
-            notes.push(note);
+            if (childSnapshot !== null) {
+              const note = {
+                key: childSnapshot.key.toString(),
+                childData: childSnapshot.val(),
+              };
+              notes.push(note);
+            }
           });
           setLoadedNotes(notes);
         } else {
