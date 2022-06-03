@@ -34,13 +34,12 @@ function MyNotes() {
           notes = [];
           setLoadedNotes([]);
           snapshot.forEach((childSnapshot) => {
-            if (childSnapshot !== null) {
-              const note = {
-                key: childSnapshot.key.toString(),
-                childData: childSnapshot.val(),
-              };
-              notes.push(note);
-            }
+            const note = {
+              key: childSnapshot.key.toString(),
+              childData: childSnapshot.val(),
+            };
+            if(note.childData?.title !== undefined)
+            notes.push(note);
           });
           setLoadedNotes(notes);
         } else {
