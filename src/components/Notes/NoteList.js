@@ -36,9 +36,10 @@ function NoteList(props) {
     <div>
       <div className={classes.date}>{props.value}</div>
       <ul className={classes.list}>
-        {(props.notes)&&(props.notes.map((note) => (
-          <Note date={props.value} kljuc={note.key} data={note.childData} />
-        )))}
+        {props.notes &&
+          props.notes.map((note) => (
+            <Note date={props.value} kljuc={note.key} data={note.childData} />
+          ))}
         <li>
           <button
             className={classes.addButton}
@@ -52,11 +53,7 @@ function NoteList(props) {
         <div className={classes.newNote}>
           <label htmlFor="title">Title:</label>
           <br />
-          <input
-            id="title"
-            type="text"
-            ref={titleInputRef}
-          />
+          <input autoFocus={true} id="title" type="text" ref={titleInputRef} />
           <br />
           <label htmlFor="description">Description:</label>
           <br />
@@ -69,11 +66,7 @@ function NoteList(props) {
           <br />
           <label htmlFor="priority">Priority:</label>
           <br />
-          <input
-            id="priority"
-            type="number"
-            ref={priorityInputRef}
-          />
+          <input id="priority" type="number" ref={priorityInputRef} />
           <br />
           <div className={classes.buttonHolder}>
             <button className={classes.button} onClick={onAddHandler}>
