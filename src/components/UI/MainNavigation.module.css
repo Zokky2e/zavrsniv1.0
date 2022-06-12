@@ -2,6 +2,8 @@
   position: absolute;
   width: 100%;
   height: 80px;
+  display: flex;
+  justify-content: center;
   left: 0px;
   top: 0px;
   background: var(--navbar);
@@ -11,19 +13,12 @@
 
 .inner {
   width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: -10px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   list-style: none;
   padding: 0;
   display: flex;
-}
-
-.header li {
-  margin-left: 2rem;
 }
 
 .header a {
@@ -40,7 +35,6 @@
   width: calc(var(--box-frame) / 5);
   height: calc(var(--box-frame) / 5);
   position: relative;
-  left: -2rem;
   margin-top: 25px;
   border-radius: 50px;
   display: inline-block;
@@ -65,7 +59,9 @@
 
 .notes {
   position: relative;
-  top: 15px;
+  align-self: center;
+  font-family: monospace;
+  width: fit-content;
 }
 
 /*# sourceMappingURL=MainNavigation.module.css.map */
