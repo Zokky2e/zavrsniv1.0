@@ -14,7 +14,7 @@ function Profile() {
     <div className={classes.containerProfile}>
       <div>
         <strong>Email: </strong>
-        <p>{currentUser?.email}<p>
+        <p>{currentUser?.email}</p>
       </div>
       <br />
       <button onClick={onSignOutHandler}>Sign Out</button>
