@@ -42,6 +42,7 @@ function NoteList(props) {
           ))}
         <li>
           <button
+            id="new-note"
             className={classes.addButton}
             onClick={() => setButtonPopup(true)}
           >
