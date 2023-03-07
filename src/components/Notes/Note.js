@@ -113,7 +113,9 @@ function Note(props) {
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
         <div>
           <h2>{title}</h2>
-          <p>Priority:  <span>{priority}</span></p>
+          <p>
+            Priority: <span>{priority}</span>
+          </p>
           <p>{description}</p>
           <div className={classes.buttonHolder}>
             <button
